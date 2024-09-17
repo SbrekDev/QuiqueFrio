@@ -12,3 +12,9 @@ export type Cliente = {
 }
 
 export type DraftCliente = Omit<Cliente, 'id'>
+
+
+export type Ingresos = {
+    gastos: number,
+    ingresos: number
+}

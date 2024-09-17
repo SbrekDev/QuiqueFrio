@@ -5,6 +5,9 @@ import NuevoCliente from "./pages/NuevoCliente"
 import Resumen from "./pages/Resumen"
 import Reestablecer from "./pages/Reestablecer"
 import AdministrarIngresos from "./pages/AdmininstrarIngresos"
+import { ToastContainer } from "react-toastify"
+import 'react-toastify/dist/ReactToastify.css';
+import EditarCliente from "./pages/EditarCliente"
 
 
 function App() {
@@ -19,7 +22,9 @@ function App() {
         <Route path="/clientes" element={ <ListadoClientes/> } />
         <Route path="/nuevo-cliente" element={ <NuevoCliente/> } />
         <Route path="/reestablecer" element={ <Reestablecer/> } />
+        <Route path="/editar/:id" element={ <EditarCliente/> } />
       </Routes>
+      <ToastContainer pauseOnHover={false} autoClose={2000}></ToastContainer>
     </div>
   )
 }

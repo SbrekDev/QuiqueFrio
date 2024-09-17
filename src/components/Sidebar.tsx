@@ -5,34 +5,49 @@ import AddCircleIcon from '@mui/icons-material/AddCircle';
 import SettingsBackupRestoreIcon from '@mui/icons-material/SettingsBackupRestore';
 import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
 import InsightsIcon from '@mui/icons-material/Insights';
+import { descargarDatos } from "../utils";
+import { obtenerDatosDesdeDB } from "../database/db";
+
 
 
 export default function Sidebar() {
+
+
+  const handleDownload = async () => {
+    try {
+        const datos = await obtenerDatosDesdeDB();
+        descargarDatos(datos);
+    } catch (error) {
+        console.error('Error al obtener los datos:', error);
+    }
+};
+
   return (
     <>
     <div className="p-5">
       <aside className="w-96 h-full bg-white shadow-lg rounded-lg flex flex-col justify-between p-5 ">
               <div>
-                  <h2 className="text-4xl font-bold text-center mt-5 text-slate-600">QUIQUE FRÍO</h2>
-                  <div className="p-5 mt-16 flex flex-col text-slate-700">
+                  <h2 className="text-6xl font-bold text-center mt-10 text-slate-600">QUIQUE<br></br><span className="text-sky-500 font-extrabold text-8xl">FRIO</span></h2>
+                  <div className="p-5 mt-10 flex flex-col text-slate-700">
                       <Link 
-                      className="hover:bg-sky-200 p-3 focus:bg-sky-500 focus:text-white rounded-lg text-xl focus:font-bold focus:py-6 transition-all flex items-center gap-3" 
-                      to='/resumen'><InsightsIcon className="text-sky-500"/> Resumen Mensual</Link>
+                      className="hover:bg-sky-200 p-3 focus:bg-sky-500 focus:text-white rounded-lg text-xl focus:font-bold focus:py-6 transition-all flex items-center gap-3 group" 
+                      to='/resumen'><InsightsIcon className="text-sky-500 group-focus:text-white"/>Resumen</Link>
                       <Link 
-                      className="hover:bg-sky-200 p-3 focus:bg-sky-500 focus:text-white rounded-lg text-xl focus:font-bold focus:py-6 transition-all flex items-center gap-3" 
-                      to='/administrar-ingresos'><PaidIcon className="text-sky-500"/>Administrar Ingresos</Link>
+                      className="hover:bg-sky-200 p-3 focus:bg-sky-500 focus:text-white rounded-lg text-xl focus:font-bold focus:py-6 transition-all flex items-center gap-3 group" 
+                      to='/administrar-ingresos'><PaidIcon className="text-sky-500 group-focus:text-white"/>Administrar Ingresos</Link>
                       <Link 
-                      className="hover:bg-sky-200 p-3 focus:bg-sky-500 focus:text-white rounded-lg text-xl focus:font-bold focus:py-6 transition-all flex items-center gap-3" 
-                      to='/clientes'><TocIcon className="text-sky-500"/>Lista de Clientes</Link>
+                      className="hover:bg-sky-200 p-3 focus:bg-sky-500 focus:text-white rounded-lg text-xl focus:font-bold focus:py-6 transition-all flex items-center gap-3 group" 
+                      to='/clientes'><TocIcon className="text-sky-500 group-focus:text-white"/>Lista de Clientes</Link>
                       <Link 
-                      className="hover:bg-sky-200 p-3 focus:bg-sky-500 focus:text-white rounded-lg text-xl focus:font-bold focus:py-6 transition-all flex items-center gap-3" 
-                      to='/nuevo-cliente'><AddCircleIcon className="text-sky-500"/>Agregar Cliente</Link>
+                      className="hover:bg-sky-200 p-3 focus:bg-sky-500 focus:text-white rounded-lg text-xl focus:font-bold focus:py-6 transition-all flex items-center gap-3 group" 
+                      to='/nuevo-cliente'><AddCircleIcon className="text-sky-500 group-focus:text-white"/>Agregar Cliente</Link>
                       <Link 
-                      className="hover:bg-sky-200 p-3 focus:bg-sky-500 focus:text-white rounded-lg text-xl focus:font-bold focus:py-6 transition-all flex items-center gap-3" 
-                      to='/reestablecer'><SettingsBackupRestoreIcon className="text-sky-500"/>Reestablecer Base de Datos</Link>
+                      className="hover:bg-sky-200 p-3 focus:bg-sky-500 focus:text-white rounded-lg text-xl focus:font-bold focus:py-6 transition-all flex items-center gap-3 group" 
+                      to='/reestablecer'><SettingsBackupRestoreIcon className="text-sky-500 group-focus:text-white"/>Reestablecer Base de Datos</Link>
                   </div>
               </div>
-              <button className="bg-sky-500 w-full p-3 text-white font-bold uppercase hover:bg-sky-600 cursor-pointer rounded transition-colors flex items-center justify-center gap-3"
+              <button className="bg-sky-500 w-full p-3 text-white font-bold uppercase hover:bg-sky-600 cursor-pointer rounded transition-colors flex items-center justify-center gap-3 group group"
+              onClick={handleDownload}
               ><CloudDownloadIcon/>Copia de Seguridad</button>
       </aside>
     </div>

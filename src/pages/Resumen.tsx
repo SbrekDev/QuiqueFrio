@@ -1,26 +1,30 @@
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
 
+
+
 export default function Resumen() {
+
+ 
   return (
     <div className="flex justify-center items-center mx-auto">
         <div className="container grid grid-cols-6 grid-rows-6 gap-5 w-[900px] h-[600px]">
           <div 
             className="col-span-3 row-span-3 rounded-lg shadow-lg bg-gradient-to-r from-sky-500 to-sky-400 hover:scale-105 transition-all flex flex-col justify-center items-center p-5"
             >
-              <h2 className="text-white font-black text-9xl">+ 12</h2>
-              <p className="text-white">Nuevos Clientes</p>
+              <h2 className="text-white font-black text-9xl">2</h2>
+              <p className="text-white">Trabajos Pendientes</p>
             </div>
           <div 
             className="col-span-3 row-span-3 rounded-lg shadow-lg bg-gradient-to-r from-sky-500 to-sky-400 hover:scale-105 transition-all flex flex-col justify-center items-center p-5"
             >
-              <h2 className="text-white font-black text-9xl">+ 16</h2>
-              <p className="text-white">Nuevos Trabajos</p>
+              <h2 className="text-white font-black text-9xl">1</h2>
+              <p className="text-white">Trabajos Completos</p>
             </div>
           <div 
             className="col-span-4 row-span-3 rounded-lg shadow-lg bg-gradient-to-r from-sky-500 to-sky-400 hover:scale-105 transition-all flex flex-col justify-center items-center p-5"
             >
               <h2 className="text-white font-black text-6xl">$ 120.000</h2>
-              <p className="text-white">Ingresos Totales</p>
+              <p className="text-white">Ganancias</p>
             </div>
           <div 
             className="col-span-2 row-span-3 rounded-lg shadow-lg bg-gradient-to-r from-sky-500 to-sky-400 hover:scale-105 transition-all flex flex-col justify-center items-center p-5"

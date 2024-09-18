@@ -2,17 +2,19 @@ import { useForm} from "react-hook-form";
 import Error from "../components/Error";
 import { DraftCliente } from "../types";
 import { useClientStore } from "../store";
+import { useNavigate } from "react-router-dom";
 
 
 export default function NuevoCliente() {
 
+  const navigate = useNavigate()
   const {addCliente} = useClientStore()
   const { register, handleSubmit, formState: {errors} } = useForm<DraftCliente>()
   
 
   const handleSubmitForm = (data : DraftCliente) => {
     addCliente(data)
-    
+    navigate('/clientes')
   }
 
   return (
@@ -146,6 +148,18 @@ export default function NuevoCliente() {
                   {...register('proximaVisita')}
                   />
               </div>
+              <input
+              type="hidden"
+              id="estado"
+              className=" w-full p-2 mt-2 bg-transparent border-b-2 focus:outline-none focus:border-b-sky-500 bg-slate-50"
+              defaultValue='Pendiente'
+              {...register('estado',{
+                pattern: {
+                  value: /Pendiente/ || /Completado/, 
+                  message: "Inválido"
+              }})}
+              />
+
             </div>
 
 

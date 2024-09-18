@@ -21,7 +21,7 @@ export default function ListadoClientes() {
           <div className="bg-white shadow-md rounded-md p-5 w-[950px] mb-5 flex items-center justify-evenly">
             <p className="text-xl text-slate-600">Filtrar por:</p>
             <form className="flex gap-2 mt-1">
-              <label htmlFor="">Fecha</label>
+              <label htmlFor="">Todos</label>
               <input type="radio" />
               <label htmlFor="">Pendiente</label>
               <input type="radio" />

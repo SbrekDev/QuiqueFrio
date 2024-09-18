@@ -25,6 +25,7 @@ export async function crearDB(): Promise<void> {
                 objectStore.createIndex('precio', 'precio', { unique: false });
                 objectStore.createIndex('ultimaVisita', 'ultimaVisita', { unique: false });
                 objectStore.createIndex('proximaVisita', 'proximaVisita', { unique: false });
+                objectStore.createIndex('estado', 'estado', { unique: false });
 
                 console.log('Base de datos actualizada');
             }

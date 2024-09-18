@@ -3,9 +3,11 @@ import Error from "../components/Error";
 import { Cliente, DraftCliente} from "../types";
 import { useClientStore } from "../store";
 import { useNavigate, useParams } from "react-router-dom";
+import { useState } from "react";
 
+  // TODO: solucionar boolean, pasa todos los styles a true
 
-
+export let estadoBoolean:boolean = false;
 
 export default function EditarCliente() {
 
@@ -28,12 +30,34 @@ export default function EditarCliente() {
       }
   });
 
+    const [ estadoFinal, setEstadoFinal] = useState<string>('Pendiente')
+
+    const handleEstado = (e: string) => {
+      setEstadoFinal(e)
+       
+    }
+
+    if(estadoFinal === "Completado"){
+        estadoBoolean = true
+    }
+    
+    
     
     const handleSubmitForm = (data : DraftCliente) => {
+      
       getClienteById(id!)
-      updateCliente(data)
+
+      const clienteActualizado = {
+        ...data,
+        estado: estadoFinal
+      };
+
+      updateCliente(clienteActualizado)
+      
       navigate('/clientes')
     }
+
+
 
     
 
@@ -171,6 +195,17 @@ export default function EditarCliente() {
                     />
                 </div>
               </div>
+              <div className="mb-5">
+                    <label htmlFor="estado" className="text-gray-700 uppercase font-bold">Estado Actual</label>
+                    <select
+                    id="estadoSelect"
+                    className=" w-full p-2 mt-2 bg-transparent border-b-2 focus:outline-none focus:border-b-sky-500 bg-slate-50"
+                    onChange={(e)=> handleEstado(e.target.value)}>
+                      <option value="Pendiente">Pendiente</option>
+                      <option value="Completado">Completado</option>
+                    </select>
+                </div>
+
 
 
               <input 

@@ -9,6 +9,7 @@ export type Cliente = {
     precio: string,
     ultimaVisita: Date,
     proximaVisita: Date,
+    estado: string
 }
 
 export type DraftCliente = Omit<Cliente, 'id'>

@@ -5,9 +5,6 @@ import { useClientStore } from "../store";
 import { useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
 
-  // TODO: solucionar boolean, pasa todos los styles a true
-
-export let estadoBoolean:boolean = false;
 
 export default function EditarCliente() {
 
@@ -37,10 +34,6 @@ export default function EditarCliente() {
        
     }
 
-    if(estadoFinal === "Completado"){
-        estadoBoolean = true
-    }
-    
     
     
     const handleSubmitForm = (data : DraftCliente) => {
@@ -56,7 +49,6 @@ export default function EditarCliente() {
       
       navigate('/clientes')
     }
-
 
 
     
@@ -201,6 +193,8 @@ export default function EditarCliente() {
                     id="estadoSelect"
                     className=" w-full p-2 mt-2 bg-transparent border-b-2 focus:outline-none focus:border-b-sky-500 bg-slate-50"
                     onChange={(e)=> handleEstado(e.target.value)}>
+
+                      <option>-- Seleccionar --</option>
                       <option value="Pendiente">Pendiente</option>
                       <option value="Completado">Completado</option>
                     </select>

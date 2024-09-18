@@ -4,7 +4,6 @@ import { Cliente } from "../types"
 import ClientDetailItem from "./ClientDetailItem"
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
-import { estadoBoolean } from "../pages/EditarCliente";
 
 type ClienteDetailsProp= {
     cliente: Cliente
@@ -15,10 +14,10 @@ export default function ClientDetails({cliente} : ClienteDetailsProp) {
     const navigate = useNavigate()
     const {deleteCliente} = useClientStore()
 
-    estadoBoolean;
+
 
   return (
-    <div className={`flex justify-around items-center m-1 px-5 py-3 bg-white shadow-md rounded-lg space-x-5 w-[900px] ${estadoBoolean ? 'border-l-green-500' : 'border-l-amber-400'} border-l-8`}>
+    <div className={`flex justify-around items-center m-1 px-5 py-3 bg-white shadow-md rounded-lg space-x-5 w-[900px] ${cliente.estado === "Completado" ? 'border-l-green-500' : 'border-l-amber-400'} border-l-8`}>
       
         <ClientDetailItem 
             label="Nombre"

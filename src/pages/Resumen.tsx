@@ -1,8 +1,22 @@
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import { gastosTotales, ingresosTotales } from './AdmininstrarIngresos';
+import { useClientStore } from '../store';
 
 
 export default function Resumen() {
+
+  const {clientes} = useClientStore()
+
+  let pendientes: number = 0
+  let completados: number = 0
+
+  clientes.forEach(cliente => {
+    if(cliente.estado === 'Pendiente'){
+        pendientes ++
+    } else if(cliente.estado === 'Completado'){
+        completados ++
+    }
+  })
 
  
   return (
@@ -11,13 +25,13 @@ export default function Resumen() {
           <div 
             className="col-span-3 row-span-3 rounded-lg shadow-lg bg-gradient-to-r from-sky-500 to-sky-400 hover:scale-105 transition-all flex flex-col justify-center items-center p-5"
             >
-              <h2 className="text-white font-black text-9xl">2</h2>
+              <h2 className="text-white font-black text-9xl">{pendientes}</h2>
               <p className="text-white">Trabajos Pendientes</p>
             </div>
           <div 
             className="col-span-3 row-span-3 rounded-lg shadow-lg bg-gradient-to-r from-sky-500 to-sky-400 hover:scale-105 transition-all flex flex-col justify-center items-center p-5"
             >
-              <h2 className="text-white font-black text-9xl">1</h2>
+              <h2 className="text-white font-black text-9xl">{completados}</h2>
               <p className="text-white">Trabajos Completos</p>
             </div>
           <div 

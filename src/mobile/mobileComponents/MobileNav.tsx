@@ -43,7 +43,7 @@ export default function MobileNav() {
   return (
     <>
     <div 
-      className={`w-full p-2 shadow-lg bg-slate-100  fixed right-0 left-0 top-0 z-20 flex ${clicked ? 'h-screen flex flex-col justify-start p-2' : 'h-20 justify-center'}`}
+      className={`w-full p-2 shadow-lg bg-slate-100  fixed right-0 left-0 top-0 z-30 flex ${clicked ? 'h-screen flex flex-col justify-start p-2' : 'h-20 justify-center'}`}
     >
       <div className="flex w-full justify-between pl-5 pr-5 items-center">
         <img src="../logo.svg" alt="logo quique" className="h-16" />      
@@ -54,24 +54,24 @@ export default function MobileNav() {
       </div>
 
       {clicked ? (
-        <div className="p-2 relative h-full">
+        <div className="p-2 relative h-full z-30">
           <div>
-              <div className="p-5 mt-12 flex flex-col text-slate-700 space-y-5">
+              <div className="p-2 mt-3 flex flex-col text-slate-700 space-y-1">
                   <Link 
                   onClick={handleClick}
                   ref={(el) => linksRef.current[0] = el}
                   className="hover:bg-sky-200 p-3 focus:bg-sky-500 focus:text-white rounded-lg text-2xl focus:font-bold focus:py-6 transition-all flex items-center gap-3 group focus:outline-none outline-none" 
-                  to='/mobile'><HomeIcon style={{ fontSize: '42px' }} className="text-sky-500 group-focus:text-white"/>Home</Link>
+                  to='/mobile'><HomeIcon style={{ fontSize: '32px' }} className="text-sky-500 group-focus:text-white"/>Home</Link>
                   <Link 
                   onClick={handleClick}
                   ref={(el) => linksRef.current[1] = el}
                   className="hover:bg-sky-200 p-3 focus:bg-sky-500 focus:text-white rounded-lg text-2xl focus:font-bold focus:py-6 transition-all flex items-center gap-3 group" 
-                  to='/mobile/resumen'><InsightsIcon style={{ fontSize: '42px' }} className="text-sky-500 group-focus:text-white"/>Resumen</Link>
+                  to='/mobile/resumen'><InsightsIcon style={{ fontSize: '32px' }} className="text-sky-500 group-focus:text-white"/>Resumen</Link>
                   <Link 
                   onClick={handleClick}
                   ref={(el) => linksRef.current[2] = el}
                   className="hover:bg-sky-200 p-3 focus:bg-sky-500 focus:text-white rounded-lg text-2xl focus:font-bold focus:py-6 transition-all flex items-center gap-3 group" 
-                  to='/mobile/administrar-ingresos'><PaidIcon style={{ fontSize: '42px' }} className="text-sky-500 group-focus:text-white"/>Administrar Ingresos</Link>
+                  to='/mobile/administrar-ingresos'><PaidIcon style={{ fontSize: '32px' }} className="text-sky-500 group-focus:text-white"/>Administrar Ingresos</Link>
                   <Link 
                   onClick={handleClick}
                   ref={(el) => linksRef.current[3] = el}
@@ -81,15 +81,15 @@ export default function MobileNav() {
                   onClick={handleClick}
                   ref={(el) => linksRef.current[4] = el}
                   className="hover:bg-sky-200 p-3 focus:bg-sky-500 focus:text-white rounded-lg text-2xl focus:font-bold focus:py-6 transition-all flex items-center gap-3 group" 
-                  to='/mobile/nuevo-cliente'><AddCircleIcon style={{ fontSize: '42px' }} className="text-sky-500 group-focus:text-white"/>Agregar Cliente</Link>
+                  to='/mobile/nuevo-cliente'><AddCircleIcon style={{ fontSize: '32px' }} className="text-sky-500 group-focus:text-white"/>Agregar Cliente</Link>
                   <Link 
                   onClick={handleClick}
                   ref={(el) => linksRef.current[5] = el}
                   className="hover:bg-sky-200 p-3 focus:bg-sky-500 focus:text-white rounded-lg text-2xl focus:font-bold focus:py-6 transition-all flex items-center gap-3 group" 
-                  to='/mobile/reestablecer'><SettingsBackupRestoreIcon style={{ fontSize: '42px' }} className="text-sky-500 group-focus:text-white"/>Reestablecer Base de Datos</Link>
+                  to='/mobile/reestablecer'><SettingsBackupRestoreIcon style={{ fontSize: '32px' }} className="text-sky-500 group-focus:text-white"/>Reestablecer Base de Datos</Link>
               </div>
           </div>
-          <button className="absolute bottom-20 right-0 left-0 mx-auto bg-sky-500 w-[calc(100%-3rem)] p-3 text-white font-bold uppercase hover:bg-sky-600 cursor-pointer rounded transition-colors flex items-center justify-center gap-3 group"
+          <button className="absolute bottom-5 right-0 left-0 mx-auto bg-sky-500 w-[calc(100%-3rem)] p-3 text-white font-bold uppercase hover:bg-sky-600 cursor-pointer rounded transition-colors flex items-center justify-center gap-3 group"
           onClick={handleDownload}
           ><CloudDownloadIcon/>Copia de Seguridad</button> 
       </div> 

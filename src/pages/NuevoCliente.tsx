@@ -153,11 +153,7 @@ export default function NuevoCliente() {
               id="estado"
               className=" w-full p-2 mt-2 bg-transparent border-b-2 focus:outline-none focus:border-b-sky-500 bg-slate-50"
               defaultValue='Pendiente'
-              {...register('estado',{
-                pattern: {
-                  value: /Pendiente/ || /Completado/, 
-                  message: "Inválido"
-              }})}
+              {...register('estado',)}
               />
 
             </div>

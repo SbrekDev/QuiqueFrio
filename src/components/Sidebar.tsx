@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import PaidIcon from '@mui/icons-material/Paid';
 import TocIcon from '@mui/icons-material/Toc';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
@@ -7,11 +7,10 @@ import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
 import InsightsIcon from '@mui/icons-material/Insights';
 import { descargarDatos } from "../utils";
 import { obtenerDatosDesdeDB } from "../database/db";
-
-
+import HomeIcon from '@mui/icons-material/Home';
+import { useEffect, useRef } from "react";
 
 export default function Sidebar() {
-
 
   const handleDownload = async () => {
     try {
@@ -20,7 +19,18 @@ export default function Sidebar() {
     } catch (error) {
         console.error('Error al obtener los datos:', error);
     }
-};
+  };
+
+  const linksRef = useRef<(HTMLAnchorElement | null)[]>([]); 
+  const location = useLocation();
+
+  useEffect(() => {
+    linksRef.current.forEach((link) => {
+      if (link && link.getAttribute('href') === location.pathname) {
+        link.focus();
+      }
+    });
+  }, [location]);
 
   return (
     <>
@@ -30,28 +40,37 @@ export default function Sidebar() {
                   <Link to='/' className="hover:cursor-pointer"><img src="/logo.svg" alt="logo quique frío" className="p-8"/></Link>
                   <div className="p-5 mt-5 flex flex-col text-slate-700">
                       <Link 
+                      ref={(el) => linksRef.current[0] = el}
+                      className="hover:bg-sky-200 p-3 focus:bg-sky-500 focus:text-white rounded-lg text-xl focus:font-bold focus:py-6 transition-all flex items-center gap-3 group" 
+                      to='/'><HomeIcon className="text-sky-500 group-focus:text-white"/>Home</Link>
+                      <Link 
+                      ref={(el) => linksRef.current[1] = el}
                       className="hover:bg-sky-200 p-3 focus:bg-sky-500 focus:text-white rounded-lg text-xl focus:font-bold focus:py-6 transition-all flex items-center gap-3 group" 
                       to='/resumen'><InsightsIcon className="text-sky-500 group-focus:text-white"/>Resumen</Link>
                       <Link 
+                      ref={(el) => linksRef.current[2] = el}
                       className="hover:bg-sky-200 p-3 focus:bg-sky-500 focus:text-white rounded-lg text-xl focus:font-bold focus:py-6 transition-all flex items-center gap-3 group" 
                       to='/administrar-ingresos'><PaidIcon className="text-sky-500 group-focus:text-white"/>Administrar Ingresos</Link>
                       <Link 
+                      ref={(el) => linksRef.current[3] = el}
                       className="hover:bg-sky-200 p-3 focus:bg-sky-500 focus:text-white rounded-lg text-xl focus:font-bold focus:py-6 transition-all flex items-center gap-3 group" 
                       to='/clientes'><TocIcon className="text-sky-500 group-focus:text-white"/>Lista de Clientes</Link>
                       <Link 
+                      ref={(el) => linksRef.current[4] = el}
                       className="hover:bg-sky-200 p-3 focus:bg-sky-500 focus:text-white rounded-lg text-xl focus:font-bold focus:py-6 transition-all flex items-center gap-3 group" 
                       to='/nuevo-cliente'><AddCircleIcon className="text-sky-500 group-focus:text-white"/>Agregar Cliente</Link>
                       <Link 
+                      ref={(el) => linksRef.current[5] = el}
                       className="hover:bg-sky-200 p-3 focus:bg-sky-500 focus:text-white rounded-lg text-xl focus:font-bold focus:py-6 transition-all flex items-center gap-3 group" 
                       to='/reestablecer'><SettingsBackupRestoreIcon className="text-sky-500 group-focus:text-white"/>Reestablecer Base de Datos</Link>
                   </div>
               </div>
-              <button className="bg-sky-500 w-full p-3 text-white font-bold uppercase hover:bg-sky-600 cursor-pointer rounded transition-colors flex items-center justify-center gap-3 group group"
+              <button className="bg-sky-500 w-full p-3 text-white font-bold uppercase hover:bg-sky-600 cursor-pointer rounded transition-colors flex items-center justify-center gap-3 group"
               onClick={handleDownload}
               ><CloudDownloadIcon/>Copia de Seguridad</button>
       </aside>
     </div>
 
     </>
-  )
+  );
 }

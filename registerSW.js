@@ -1,0 +1,1 @@
+if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/QuiqueFrio/sw.js', { scope: '/QuiqueFrio/' })})}

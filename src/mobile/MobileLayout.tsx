@@ -36,7 +36,7 @@ export default function MobileLayout() {
       <div className="custom-container overflow-hidden relative bg-white shadow-lg space-y-10 w-full h-full flex items-center justify-center">
         <div className="flex justify-center items-center">
 
-        <header className='absolute right-0 left-0 top-20 w-[1660px] rotate-180'>
+        <header className='absolute right-0 left-0 top-20 w-[2000px] rotate-180'>
           <div className="background">
             <svg
               version="1.1"
@@ -101,9 +101,9 @@ export default function MobileLayout() {
           </div>
         </header>
           
-           <div className="flex flex-col items-center justify-start w-full h-screen">
-            <div className="flex flex-col items-center h-72 w-[2000px] mb-36 rounded-lg">
-              <h2 className="text-8xl mt-32 text-white">{hours}</h2>
+           <div className="flex flex-col items-center justify-center w-full h-screen">
+            <div className="flex flex-col items-center h-72 w-[2000px] rounded-lg">
+              <h2 className="text-8xl text-white z-20">{hours}</h2>
               <p className="text-xl text-white">{formatDatePretty(new Date().toString())}</p>
             </div>
             <div>
@@ -112,7 +112,7 @@ export default function MobileLayout() {
             </div>
            </div>
         </div>
-        <footer className='absolute right-0 left-0 bottom-0 w-[1660px]'>
+        <footer className='absolute right-0 left-0 bottom-0 w-[2000px]'>
           <div className="background">
             <svg
               version="1.1"

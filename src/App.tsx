@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom"
+import { Navigate, Route, Routes } from "react-router-dom"
 import Sidebar from "./components/Sidebar"
 import ListadoClientes from "./pages/ListadoClientes"
 import NuevoCliente from "./pages/NuevoCliente"
@@ -25,6 +25,7 @@ function App() {
         <Route path="/nuevo-cliente" element={ <NuevoCliente/> } />
         <Route path="/reestablecer" element={ <Reestablecer/> } />
         <Route path="/editar/:id" element={ <EditarCliente/> } />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
       <ToastContainer pauseOnHover={false} autoClose={2000}></ToastContainer>
     </div>

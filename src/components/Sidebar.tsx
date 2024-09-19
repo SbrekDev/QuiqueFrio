@@ -41,7 +41,7 @@ export default function Sidebar() {
                   <div className="p-5 mt-5 flex flex-col text-slate-700">
                       <Link 
                       ref={(el) => linksRef.current[0] = el}
-                      className="hover:bg-sky-200 p-3 focus:bg-sky-500 focus:text-white rounded-lg text-xl focus:font-bold focus:py-6 transition-all flex items-center gap-3 group" 
+                      className="hover:bg-sky-200 p-3 focus:bg-sky-500 focus:text-white rounded-lg text-xl focus:font-bold focus:py-6 transition-all flex items-center gap-3 group focus:outline-none outline-none" 
                       to='/'><HomeIcon className="text-sky-500 group-focus:text-white"/>Home</Link>
                       <Link 
                       ref={(el) => linksRef.current[1] = el}

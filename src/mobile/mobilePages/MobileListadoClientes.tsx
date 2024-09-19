@@ -48,7 +48,7 @@ export default function MobileListadoClientes() {
                     <option value="Completado">Completados</option>
                 </select>
               </div>
-              <div className="flex gap-3 items-center justify-between w-full">
+              <div className="flex gap-3 items-center justify-between w-40">
                 <p className="text-slate-400 font-bold">Nombre</p>
                 <input 
                   type="text"

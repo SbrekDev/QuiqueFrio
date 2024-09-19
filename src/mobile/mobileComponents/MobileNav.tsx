@@ -56,7 +56,7 @@ export default function MobileNav() {
       {clicked ? (
         <div className="p-2 relative h-full z-30">
           <div>
-              <div className="p-2 mt-3 flex flex-col text-slate-700 space-y-1">
+              <div className="p-2 mt-10 flex flex-col text-slate-700 space-y-1">
                   <Link 
                   onClick={handleClick}
                   ref={(el) => linksRef.current[0] = el}

@@ -1,35 +1,6 @@
-import { useEffect, useState } from "react";
-import { formatDatePretty } from "../utils";
-
 
 export default function MobileLayout() {
-  const getCurrentTime = () => {
-    const now = new Date();
-    const hours = now.getHours();
-    const minutes = String(now.getMinutes()).padStart(2, '0');
-    return `${hours}:${minutes}`;
-  };
-
-  const [hours, setHours] = useState(getCurrentTime);
-
-  useEffect(() => {
-    const now = new Date();
-    const secondsUntilNextMinute = (60 - now.getSeconds()) * 1000;
-
-    const timeout = setTimeout(() => {
-      setHours(getCurrentTime);
-
-      const interval = setInterval(() => {
-        setHours(getCurrentTime);
-      }, 60000);
-
-      return () => clearInterval(interval);
-    }, secondsUntilNextMinute);
-
-    return () => clearTimeout(timeout);
-  }, []);
-
-
+  
   return (
     
     <div className="mx-auto h-screen w-full">
@@ -102,10 +73,7 @@ export default function MobileLayout() {
         </header>
           
         <div className="flex flex-col gap-20 mt-24 items-center justify-start w-full z-20">
-            <div className="flex flex-col items-center justify-start rounded-lg">
-              <h2 className="text-8xl text-white ">{hours}</h2>
-              <p className="text-xl text-white">{formatDatePretty(new Date().toString())}</p>
-            </div>
+            
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="text-center">
                 <p className="text-2xl text-slate-600 mb-1">Bienvenido</p>

@@ -50,40 +50,42 @@ export default function MobileResumen() {
  
   return (
     <div className="flex justify-center items-center mx-auto p-2 h-full w-full">
-        <div className="container flex flex-col gap-5 w-full h-[calc(100vh-15rem)]">
+        <div className="container flex flex-col gap-2 w-full ">
+          <div className='flex gap-2'>
+            <div 
+              className=" rounded-lg shadow-lg bg-gradient-to-r from-sky-500 to-sky-400 hover:scale-105 transition-all flex flex-col justify-center text-center items-center py-8 px-5"
+              >
+                <h2 className="text-white font-black text-3xl">{pendientes}</h2>
+                <p className="text-white font-bold text-xl">Trabajos Pendientes</p>
+              </div>
+            <div 
+              className="rounded-lg shadow-lg bg-gradient-to-r from-sky-500 to-sky-400 hover:scale-105 transition-all flex flex-col justify-center text-center items-center py-8 px-5"
+              >
+                <h2 className="text-white font-black text-3xl">{completados}</h2>
+                <p className="text-white font-bold text-xl">Trabajos Completos</p>
+              </div>
+          </div>
           <div 
-            className=" rounded-lg shadow-lg bg-gradient-to-r from-sky-500 to-sky-400 hover:scale-105 transition-all flex flex-col justify-center items-center p-5"
+            className="rounded-lg shadow-lg bg-gradient-to-r from-sky-500 to-sky-400 hover:scale-105 transition-all flex flex-col justify-center items-center py-8 px-5"
             >
-              <h2 className="text-white font-black text-5xl">{pendientes}</h2>
-              <p className="text-white font-bold text-2xl">Trabajos Pendientes</p>
+              <h2 className="text-white font-black text-3xl">${gananciasTotales}</h2>
+              <p className="text-green-700 text-xl font-bold">Ganancias</p>
             </div>
           <div 
-            className="rounded-lg shadow-lg bg-gradient-to-r from-sky-500 to-sky-400 hover:scale-105 transition-all flex flex-col justify-center items-center p-5"
+            className="rounded-lg shadow-lg bg-gradient-to-r from-sky-500 to-sky-400 hover:scale-105 transition-all flex flex-col justify-center items-center py-8 px-5"
             >
-              <h2 className="text-white font-black text-5xl">{completados}</h2>
-              <p className="text-white font-bold text-2xlfont-bold text-2xl">Trabajos Completos</p>
+              <h2 className="text-white font-black text-3xl">${gastosTotales}</h2>
+              <p className="text-red-600 text-xl font-bold">Gastos</p>
             </div>
           <div 
-            className="rounded-lg shadow-lg bg-gradient-to-r from-sky-500 to-sky-400 hover:scale-105 transition-all flex flex-col justify-center items-center p-5"
+            className="rounded-lg shadow-lg bg-gradient-to-r from-sky-500 to-sky-400 hover:scale-105 transition-all flex flex-col justify-center items-center py-8 px-5"
             >
-              <h2 className="text-white font-black text-4xl">${gananciasTotales}</h2>
-              <p className="text-green-700 text-2xl font-bold">Ganancias</p>
-            </div>
-          <div 
-            className="rounded-lg shadow-lg bg-gradient-to-r from-sky-500 to-sky-400 hover:scale-105 transition-all flex flex-col justify-center items-center p-5"
-            >
-              <h2 className="text-white font-black text-4xl">${gastosTotales}</h2>
-              <p className="text-red-600 text-2xl font-bold">Gastos</p>
-            </div>
-          <div 
-            className="rounded-lg shadow-lg bg-gradient-to-r from-sky-500 to-sky-400 hover:scale-105 transition-all flex flex-col justify-center items-center p-5"
-            >
-              <h2 className="text-white font-black text-4xl">${ingresosTotales}</h2>
-              <p className="text-amber-400 text-2xl font-bold">Ingresos Totales</p>
+              <h2 className="text-white font-black text-3xl">${ingresosTotales}</h2>
+              <p className="text-amber-400 text-xl font-bold">Ingresos Totales</p>
             </div>
         </div>
         <button 
-        className="absolute mx-auto right-0 left-0 bottom-10 bg-sky-500 p-4 text-white font-bold uppercase hover:bg-sky-600 cursor-pointer rounded-full shadow-lg transition-colors flex items-center justify-center gap-3 w-40"
+        className="absolute mx-auto right-0 left-0 bottom-5 bg-sky-500 p-3 text-white font-bold uppercase hover:bg-sky-600 cursor-pointer rounded-full shadow-lg transition-colors flex items-center justify-center gap-3 w-40"
         onClick={handleReset}
         ><RestartAltIcon/>Reinciar</button>
     </div>

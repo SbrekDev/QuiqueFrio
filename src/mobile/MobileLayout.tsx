@@ -83,7 +83,7 @@ export default function MobileLayout() {
            </div>
         </div>
 
-        <footer className='absolute right-0 left-0 bottom-0 w-[2000px]'>
+        <footer className='absolute right-0 left-0 bottom-0 w-[2300px]'>
           <div className="background">
             <svg
               version="1.1"

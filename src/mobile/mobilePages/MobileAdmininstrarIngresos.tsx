@@ -3,13 +3,15 @@ import { useForm } from "react-hook-form";
 import { Ingresos } from "../../types";
 import Error from "../../components/Error";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 
 
 export default function MobileAdministrarIngresos() {
 
+  const navigate = useNavigate()
 
-  const { register, handleSubmit, formState: {errors}, reset } = useForm<Ingresos>()
+  const { register, handleSubmit, formState: {errors}, reset} = useForm<Ingresos>()
 
   const [gastosTotales, setGastosTotales] = useState<number>(() => {
     const savedGastos = localStorage.getItem('gastosTotales');
@@ -39,7 +41,10 @@ export default function MobileAdministrarIngresos() {
     setGastosTotales(prevGastos => prevGastos + nuevosGastos);
     setIngresosTotales(prevIngresos => prevIngresos + nuevosIngresos);
     toast.success('Ingresos Actualizados')
-    reset();
+    reset()
+    setTimeout(() => {
+      navigate('/mobile/resumen')
+    }, 100);
   }
   
 

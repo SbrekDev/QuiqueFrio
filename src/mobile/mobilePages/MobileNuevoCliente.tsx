@@ -18,7 +18,7 @@ export default function MobileNuevoCliente() {
   }
 
   return (
-    <div className="flex flex-col justify-center items-center mx-auto h-full p-2 mt-36">
+    <div className="flex flex-col justify-center items-center mx-auto h-full p-2 mt-[140px]">
         <form 
         className=" bg-white shadow-lg rounded-lg p-5 w-full"
         onSubmit={handleSubmit(handleSubmitForm)}
@@ -166,7 +166,9 @@ export default function MobileNuevoCliente() {
             />
 
         </form>
+        <div className="bg-slate-400 w-full min-h-4 mt-2 rounded-full"></div>
     </div>
+
   )
 }
 

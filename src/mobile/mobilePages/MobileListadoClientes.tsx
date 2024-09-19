@@ -54,7 +54,7 @@ export default function MobileListadoClientes() {
                   type="text"
                   id="buscar"
                   placeholder="Nombre y Apellido"
-                  className="p-2 bg-transparent border-b-2 focus:outline-none focus:border-b-sky-500 bg-slate-50" 
+                  className="p-2 bg-transparent border-b-2 focus:outline-none focus:border-b-sky-500 bg-slate-50 w-1" 
                   onChange={handleSearchChange}
                 />
               </div>

@@ -101,9 +101,9 @@ export default function MobileLayout() {
           </div>
         </header>
           
-           <div className="flex flex-col items-center justify-center w-full h-screen">
-            <div className="flex flex-col items-center h-72 w-[2000px] rounded-lg">
-              <h2 className="text-8xl text-white z-20">{hours}</h2>
+           <div className="flex flex-col items-center justify-center w-full h-screen z-20">
+            <div className="flex flex-col items-center justify-center gap-7 h-72 w-[2000px] rounded-lg">
+              <h2 className="text-8xl text-white ">{hours}</h2>
               <p className="text-xl text-white">{formatDatePretty(new Date().toString())}</p>
             </div>
             <div>

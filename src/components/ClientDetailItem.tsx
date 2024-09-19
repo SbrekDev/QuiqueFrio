@@ -7,9 +7,14 @@ type ClientDetailItemProps = {
 
 export default function ClientDetailItem({label, data}: ClientDetailItemProps) {
   return (
-    <div className="w-40">
-        <label className="text-slate-600 text-sm uppercase">{label}:</label>
-        <p className="text-wrap">{data}</p>
-    </div>
+    <>
+        {data === '$' || data === '' ? null : (
+        <div className="w-40">
+          <label className="text-slate-500 text-sm uppercase font-bold">{label}:</label>
+          <p className="text-wrap">{data}</p>
+        </div>
+      )}
+    </>
+
   )
 }

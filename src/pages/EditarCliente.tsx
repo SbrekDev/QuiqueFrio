@@ -27,7 +27,7 @@ export default function EditarCliente() {
       }
   });
 
-    const [ estadoFinal, setEstadoFinal] = useState<string>('Pendiente')
+    const [ estadoFinal, setEstadoFinal] = useState<string>(cliente?.estado!)
 
     const handleEstado = (e: string) => {
       setEstadoFinal(e)

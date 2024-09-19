@@ -91,6 +91,8 @@ export function obtenerDatosDesdeDB(): Promise<Cliente[]> {
 }
 
 export async function restablecerDatosEnDB(clientes: Cliente[]): Promise<void> {
+
+    
     return new Promise((resolve, reject) => {
         if (!DB) {
             reject(new Error('Base de datos no inicializada'));

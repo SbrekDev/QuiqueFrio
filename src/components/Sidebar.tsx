@@ -27,8 +27,8 @@ export default function Sidebar() {
     <div className="p-5">
       <aside className="w-96 h-full bg-white shadow-lg rounded-lg flex flex-col justify-between p-5 ">
               <div>
-                  <h2 className="text-6xl font-bold text-center mt-10 text-slate-600">QUIQUE<br></br><span className="text-sky-500 font-extrabold text-8xl">FRIO</span></h2>
-                  <div className="p-5 mt-10 flex flex-col text-slate-700">
+                  <Link to='/' className="hover:cursor-pointer"><img src="/logo.svg" alt="logo quique frío" className="p-8"/></Link>
+                  <div className="p-5 mt-5 flex flex-col text-slate-700">
                       <Link 
                       className="hover:bg-sky-200 p-3 focus:bg-sky-500 focus:text-white rounded-lg text-xl focus:font-bold focus:py-6 transition-all flex items-center gap-3 group" 
                       to='/resumen'><InsightsIcon className="text-sky-500 group-focus:text-white"/>Resumen</Link>

@@ -8,15 +8,17 @@ import AdministrarIngresos from "./pages/AdmininstrarIngresos"
 import { ToastContainer } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css';
 import EditarCliente from "./pages/EditarCliente"
+import Layout from "./Layout"
 
 
 function App() {
 
 
   return (
-    <div className="flex w-full h-screen bg-cover bg-center" /* style={{ backgroundImage: 'url("./bg.jpg")'}} */>
+    <div className="flex w-full h-screen bg-cover bg-center">
       <Sidebar/>
       <Routes>
+        <Route path="/" element={ <Layout/> } index/>
         <Route path="/resumen" element={ <Resumen/> } />
         <Route path="/administrar-ingresos" element={ <AdministrarIngresos/> } />
         <Route path="/clientes" element={ <ListadoClientes/> } />

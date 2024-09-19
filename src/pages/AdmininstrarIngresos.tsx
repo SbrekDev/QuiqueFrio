@@ -1,30 +1,46 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useForm } from "react-hook-form";
 import { Ingresos } from "../types";
 import Error from "../components/Error";
+import { toast } from "react-toastify";
 
-export let gastosTotales = 0
-export let ingresosTotales = 0
+
 
 export default function AdministrarIngresos() {
 
-  // TODO: almacenar en localstorage y realizar operaciones matemaiticas para reiniciar los contadores
 
   const { register, handleSubmit, formState: {errors}, reset } = useForm<Ingresos>()
 
-  const [, setGastos] = useState<number>(0);
-  const [, setIngresos] = useState<number>(0);
+  const [gastosTotales, setGastosTotales] = useState<number>(() => {
+    const savedGastos = localStorage.getItem('gastosTotales');
+    return savedGastos ? parseFloat(savedGastos) : 0;
+  });
 
-  function handleForm(data: Ingresos){
-    const nuevosGastos = Number(data.gastos)
-    const nuevosIngresos = Number(data.ingresos)
-    setGastos(nuevosGastos)
-    setIngresos(nuevosIngresos)
-    gastosTotales += nuevosGastos
-    ingresosTotales += nuevosIngresos
-    reset()
+  const [ingresosTotales, setIngresosTotales] = useState<number>(() => {
+    const savedIngresos = localStorage.getItem('ingresosTotales');
+    return savedIngresos ? parseFloat(savedIngresos) : 0;
+  });
+
+  useEffect(() => {
+    localStorage.setItem('gastosTotales', gastosTotales.toString());
+    localStorage.setItem('ingresosTotales', ingresosTotales.toString());
+    if(ingresosTotales - gastosTotales > 0){
+      localStorage.setItem('gananciasTotales', (ingresosTotales - gastosTotales).toString());
+    } else {
+      localStorage.setItem('gananciasTotales', (0).toString());
+    }
+  }, [gastosTotales, ingresosTotales]);
+
+  function handleForm(data: Ingresos) {
+    const nuevosGastos = Number(data.gastos);
+    const nuevosIngresos = Number(data.ingresos);
+
+
+    setGastosTotales(prevGastos => prevGastos + nuevosGastos);
+    setIngresosTotales(prevIngresos => prevIngresos + nuevosIngresos);
+    toast.success('Ingresos Actualizados')
+    reset();
   }
-
   
 
   return (

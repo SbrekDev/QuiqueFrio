@@ -48,7 +48,16 @@ export default function MobileListadoClientes() {
                     <option value="Completado">Completados</option>
                 </select>
               </div>
-    
+              <div className="flex gap-3 items-center justify-between">
+                <p className="text-slate-400 font-bold">Nombre</p>
+                <input 
+                  type="text"
+                  id="buscar"
+                  placeholder="Nombre y Apellido"
+                  className="p-2 bg-transparent border-b-2 focus:outline-none focus:border-b-sky-500 bg-slate-50" 
+                  onChange={handleSearchChange}
+                />
+              </div>
 
 
 

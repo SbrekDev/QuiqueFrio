@@ -38,10 +38,10 @@ export default function MobileListadoClientes() {
           <div className="bg-white shadow-md rounded-md p-5 pl-10 pr-10 w-full mb-5 flex flex-col items-start">
             <h2 className="text-3xl mb-3 text-slate-600 w-full flex justify-center items-center">Filtros</h2>
               <div className="flex gap-3 items-center justify-between w-full">
-                <p className="text-slate-400 font-bold">Estado Actual</p>
+                <p className="text-slate-400 font-bold w-40">Estado Actual</p>
                 <select
                   id="estadoSelectFind"
-                  className=" w-40 bg-transparent border-b-2 focus:outline-none focus:border-b-sky-500 bg-slate-50 p-2"
+                  className="w-full bg-transparent border-b-2 focus:outline-none focus:border-b-sky-500 bg-slate-50 p-2"
                   onChange={(e)=> handleChange(e.target.value)}>
                     <option value="Todos">Todos</option>
                     <option value="Pendiente">Pendientes</option>

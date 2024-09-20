@@ -29,11 +29,11 @@ export default function MobileClientDetails({cliente} : ClienteDetailsProp) {
     <div 
         className={`flex flex-col  py-2 shadow-md rounded-lg w-full border-l-8 transition-all 
             ${cliente.estado === "Completado" ? 'border-l-green-500 hover:bg-green-100' : 'border-l-amber-400 hover:bg-amber-100'}  
-            ${clicked ? `${cliente.estado === "Completado" ? 'bg-green-100' : 'bg-amber-100'}` : 'bg-white justify-around items-center'} hover:cursor-pointer`}
+            ${clicked ? `${cliente.estado === "Completado" ? 'bg-green-100' : 'bg-amber-100'}` : 'bg-white items-center'} hover:cursor-pointer`}
         onClick={handleClick}
     
     >
-      <div className={` ${clicked ? 'grid gap-4 justify-items-start p-5 grid-cols-2 mb-5' : 'flex justify-start gap-4 items-center'}`}>
+      <div className={` ${clicked ? 'grid gap-4 justify-items-start p-5 grid-cols-2 mb-5' : 'flex justify-evenly gap-4 items-center w-full pl-5'}`}>
         <MobileClientDetailItem 
             label="Nombre"
             data={cliente.nombre}
@@ -43,14 +43,16 @@ export default function MobileClientDetails({cliente} : ClienteDetailsProp) {
             data={cliente.direccion}
         />
 
+        <div className={` ${clicked ? 'block' : 'hidden sm:block'} `}>
+            <MobileClientDetailItem
+                label="telefono"
+                data={cliente.telefono}
+            />
+        </div>
 
         {clicked ? (
             <>
 
-                <MobileClientDetailItem 
-                    label="telefono"
-                    data={cliente.telefono}
-                />
                 <MobileClientDetailItem 
                     label="Email"
                     data={cliente.email}

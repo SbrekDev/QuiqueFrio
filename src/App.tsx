@@ -45,7 +45,7 @@ function App() {
 
   const {width} = useWindowSize();
 
-  const isDesktop = width >= 1650;
+  const isDesktop = width >= 1024;
 
   return (
     <>

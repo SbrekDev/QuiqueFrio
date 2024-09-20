@@ -72,7 +72,7 @@ export default function MobileEditarCliente() {
     if(isLoading) return 'Cargando...'
 
     return (
-      <div className="flex flex-col justify-start items-center mx-auto h-full p-2 mt-[150px]">
+      <div className="flex flex-col justify-center items-center mx-auto h-full p-2 mt-[150px]">
           <form 
           className=" bg-white shadow-lg rounded-lg p-5 w-full"
           onSubmit={handleSubmit(handleSubmitForm)}

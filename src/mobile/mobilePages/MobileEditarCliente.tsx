@@ -3,7 +3,7 @@ import Error from "../../components/Error";
 import { Cliente, DraftCliente} from "../../types";
 import { useClientStore } from "../../store";
 import { useNavigate, useParams } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 export default function MobileEditarCliente() {
@@ -29,6 +29,7 @@ export default function MobileEditarCliente() {
 
     const [ estadoFinal, setEstadoFinal] = useState<string>(cliente?.estado!)
 
+
     const handleEstado = (e: string) => {
       setEstadoFinal(e)
        
@@ -49,6 +50,21 @@ export default function MobileEditarCliente() {
       
       navigate('/mobile/clientes')
     }
+
+    
+
+    useEffect(() => {
+      const handleBeforeUnload = (event: { preventDefault: () => void; returnValue: string; }) => {
+          event.preventDefault();
+          event.returnValue = ''; // Esto es necesario para que el mensaje aparezca en algunos navegadores
+      };
+
+      window.addEventListener('beforeunload', handleBeforeUnload);
+
+      return () => {
+          window.removeEventListener('beforeunload', handleBeforeUnload);
+      };
+  }, []);
 
 
     

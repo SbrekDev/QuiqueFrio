@@ -184,7 +184,7 @@ export const useClientStore = create<ClientesState>((set, get)=> ({
             return;
          }
 
-         const activeId = get().activeId; // Obtener el activeId del estado de Zustand
+         const activeId = get().activeId; 
 
          if (!activeId) {
              console.error('No hay un ID activo para actualizar');
@@ -213,7 +213,7 @@ export const useClientStore = create<ClientesState>((set, get)=> ({
             }))
             toast.success('Cliente actualizado')
          }
-    }
+    },
 
 }))
 

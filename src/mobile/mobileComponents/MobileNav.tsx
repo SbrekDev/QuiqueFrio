@@ -24,6 +24,9 @@ export default function MobileNav() {
 
   const [clicked, setClicked] = useState<boolean>(false)
 
+  useEffect(() => {
+    console.log("MobileNav se ha montado o actualizado");
+}, []);
 
   function handleClick() {
       setClicked(prevClicked => !prevClicked);
@@ -46,7 +49,7 @@ export default function MobileNav() {
       className={`w-full p-2 shadow-lg bg-slate-100  fixed right-0 left-0 top-0 z-30 flex ${clicked ? 'h-screen flex flex-col justify-start p-2' : 'h-20 justify-center'}`}
     >
       <div className="flex w-full justify-between pl-5 pr-5 items-center">
-        <img src="../logo.svg" alt="logo quique" className="h-16" />      
+        <Link to='/mobile'><img src="/logo.svg" alt="logo quique" className="h-16" /></Link>    
           <MenuIcon 
             onClick={handleClick}
             style={{ fontSize: '42px' }}

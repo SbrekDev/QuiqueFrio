@@ -31,18 +31,18 @@ export default function Layout() {
 
 
   return (
-    <div className="flex justify-center items-center mx-auto pt-5 pb-5 pr-5">
-      <div className="custom-container overflow-hidden relative bg-white shadow-lg rounded-lg p-10 space-y-10 w-[calc(100vw-28rem)] h-full flex items-center justify-center">
+    <div className="flex justify-end items-center mx-auto pt-5 pb-5 pr-5 w-full">
+      <div className="overflow-hidden relative bg-white shadow-lg rounded-lg p-10 space-y-10 w-full h-full flex items-center justify-center">
         <div className="flex justify-center items-center mb-56">
           
-           <div className="flex gap-40 items-center justify-center">
+           <div className="flex lg:gap-10 xl:gap-20 2xl:gap-40 items-center justify-center">
             <div>
-              <p className="text-4xl text-slate-600 mb-1">Bienvenido</p>
-              <h2 className="text-9xl text-sky-500 font-bold uppercase">Enrique</h2>
+              <p className="lg:text-2xl xl:text-4xl text-slate-600 mb-1">Bienvenido</p>
+              <h2 className="lg:text-5xl xl:text-6xl 4xl:text-9xl text-primary font-bold uppercase">Enrique</h2>
             </div>
-            <div className="flex flex-col justify-center items-center bg-sky-500 h-[700px] w-[450px] mb-56 rounded-lg shadow-xl">
-              <h2 className="text-[160px] text-white mt-56">{hours}</h2>
-              <p className="text-xl text-white">{formatDatePretty(new Date().toString())}</p>
+            <div className="flex flex-col justify-center items-center bg-sky-500 h-[700px] lg:w-72 xl:w-96 2xl:w-[450px] mb-56 rounded-lg shadow-xl">
+              <h2 className="lg:text-6xl xl:text-8xl 2xl:text-[160px] text-white mt-56">{hours}</h2>
+              <p className="lg:text-md xl:text-lg 2xl:text-xl text-white">{formatDatePretty(new Date().toString())}</p>
             </div>
            </div>
         </div>

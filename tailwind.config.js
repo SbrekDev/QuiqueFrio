@@ -8,7 +8,14 @@ export default {
     extend: {
       fontFamily:{
         body: ['Poppins', 'sans-serif']
-      }
+      },
+      screens: {
+        '4xl': '1800px', 
+      },
+      colors: {
+        primary: '#0ea5e9', 
+        hover: '#0284c7', 
+      },
     },
   },
   plugins: [],

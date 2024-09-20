@@ -34,8 +34,8 @@ export default function ListadoClientes() {
 
   return (
 
-    <div className="flex flex-col items-center mx-auto p-5">
-          <div className="bg-white shadow-md rounded-md p-5 w-[1050px] mb-5 flex items-center justify-start gap-20">
+    <div className="flex flex-col items-center mx-auto p-5 w-full 2xl:w-[1050px]">
+          <div className="bg-white shadow-md rounded-md p-5 w-full 2xl:w-[1050px] mb-5 flex flex-col xl:flex-row items-center justify-start gap-5 xl:gap-20">
             <h2 className="text-2xl text-slate-600 ml-6">Filtros</h2>
               <div className="flex gap-3 items-center justify-center">
                 <p className="text-slate-400 font-bold">Estado Actual</p>
@@ -48,7 +48,7 @@ export default function ListadoClientes() {
                     <option value="Completado">Completados</option>
                 </select>
               </div>
-              <div className="flex gap-3 items-center justify-center">
+              <div className="flex gap-3 items-center justify-center ">
                 <p className="text-slate-400 font-bold">Nombre</p>
                 <input 
                   type="text"
@@ -64,7 +64,7 @@ export default function ListadoClientes() {
                 
   
           </div>
-         <div className={`flex flex-col space-y-3 h-fit ${clientesFiltrados.length ? 'overflow-y-scroll' : ''}`}>
+         <div className={`flex flex-col w-full 2xl:w-[1050px] space-y-3 h-fit ${clientesFiltrados.length ? 'overflow-y-scroll' : ''}`}>
          {clientesFiltrados.length ? (
                 <>
                   {estadoFinal === 'Todos' ? 

@@ -27,13 +27,13 @@ export default function ClientDetails({cliente} : ClienteDetailsProp) {
 
   return (
     <div 
-        className={`flex m-1 px-5 py-3  shadow-md rounded-lg space-x-5 w-[1000px] border-l-8 transition-all 
+        className={`flex px-5 py-3  shadow-md rounded-lg space-x-5 w-full 2xl:w-[1030px] border-l-8 transition-all 
             ${cliente.estado === "Completado" ? 'border-l-green-500 hover:bg-green-100' : 'border-l-amber-400 hover:bg-amber-100'}  
             ${clicked ? `flex-col ${cliente.estado === "Completado" ? 'bg-green-100' : 'bg-amber-100'}` : 'bg-white justify-around items-center'} hover:cursor-pointer`}
         onClick={handleClick}
     
     >
-      <div className={` ${clicked ? 'grid gap-8 justify-items-center grid-cols-3 mb-5' : 'flex justify-center items-center gap-20'}`}>
+      <div className={` ${clicked ? 'grid gap-8 justify-items-center grid-cols-3 mb-5' : 'flex justify-center items-center gap-8 xl:gap-15 2xl:gap-25'}`}>
       <ClientDetailItem 
             label="Nombre"
             data={cliente.nombre}
@@ -43,10 +43,12 @@ export default function ClientDetails({cliente} : ClienteDetailsProp) {
             label="direccion"
             data={cliente.direccion}
         />
-        <ClientDetailItem 
-            label="telefono"
-            data={cliente.telefono}
-        />
+        <div className="hidden xl:block">
+            <ClientDetailItem 
+                label="telefono"
+                data={cliente.telefono}
+            />
+        </div>
 
         {clicked ? (
             <>
@@ -77,7 +79,7 @@ export default function ClientDetails({cliente} : ClienteDetailsProp) {
 
 
 
-        <div className="flex">
+        <div className="xl:flex">
             {clicked ? (            
                 <button 
                     className="bg-green-500 w-full p-2 text-white text-sm m-1 font-bold uppercase hover:bg-green-600 cursor-pointer rounded-lg transition-colors flex items-center justify-center gap-1"

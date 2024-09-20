@@ -13,6 +13,7 @@ export default defineConfig({
         name: 'Quique Frío APP',
         short_name: 'Quique Frío APP',
         theme_color: '#ffffff',
+        orientation: "portrait",
         icons: [
             {
                 src: 'pwa-64x64.png',

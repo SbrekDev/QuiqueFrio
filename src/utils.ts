@@ -1,12 +1,19 @@
 import jsPDF from "jspdf";
 import { Cliente } from "./types";
 
-export function descargarDatos(clientes: Cliente[]) {
+
+const isDesktop = window.innerWidth >= 1024;
+
+export function descargarDatos(clientes: Cliente[]) {  
     const blob = new Blob([JSON.stringify(clientes, null, 2)], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'BackupData.json';
+    if(isDesktop){
+        a.download = 'BackupData-Desktop.json';
+    } else {
+        a.download = 'BackupData-Mobile.json';
+    }
     a.click();
     URL.revokeObjectURL(url);
 }
@@ -131,3 +138,5 @@ export const generateClientPDF = (data: Cliente) => {
     // Descarga el PDF con el nombre del cliente
     doc.save(`Comprobante - ${data.nombre}.pdf`);
   };
+
+

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { restablecerDatosEnDB } from "../database/db";
+import { eliminarDatosEnDB, restablecerDatosEnDB } from "../database/db";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
@@ -13,6 +13,10 @@ export default function Reestablecer() {
           setFile(e.target.files[0]);
       }
   };
+
+  const handleDelete = () =>{
+    eliminarDatosEnDB()
+  }
 
 
 
@@ -53,6 +57,11 @@ export default function Reestablecer() {
             value='Reestablecer' 
             className="bg-sky-500 w-full p-3 text-white font-bold uppercase hover:bg-sky-600 cursor-pointer rounded transition-colors mt-5"
             onClick={handleUpload}  
+          />
+          <input type="submit" 
+            value='Eliminar base de datos' 
+            className="bg-red-500 w-full p-3 text-white font-bold uppercase hover:bg-red-600 cursor-pointer rounded transition-colors mt-2"
+            onClick={handleDelete}  
           />
         </div>
       </div>

@@ -38,7 +38,7 @@ const initializeStore = async () => {
     try {
         await crearDB(); // Crea la base de datos
         await conectarDB(); // Conecta a la base de datos
-        console.log('Base de datos inicializada con éxito');
+        // console.log('Base de datos inicializada con éxito');
 
         await useClientStore.getState().getClientes();
     } catch (error) {

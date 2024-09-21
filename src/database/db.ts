@@ -2,6 +2,7 @@
 
 // db.ts
 
+import Swal from "sweetalert2";
 import { Cliente } from "../types";
 
 export let DB: IDBDatabase | undefined;
@@ -32,7 +33,7 @@ export async function crearDB(): Promise<void> {
         };
 
         request.onsuccess = function () {
-            console.log('Base de datos creada con éxito');
+            // console.log('Base de datos creada con éxito');
             resolve();
         };
 
@@ -51,7 +52,7 @@ export async function conectarDB(): Promise<void> {
 
         request.onsuccess = function () {
             DB = request.result;
-            console.log('Base de datos conectada');
+            // console.log('Base de datos conectada');
             resolve();
         };
 
@@ -102,10 +103,10 @@ export async function restablecerDatosEnDB(clientes: Cliente[]): Promise<void> {
         const transaction = DB.transaction('clientsDB', 'readwrite');
         const objectStore = transaction.objectStore('clientsDB');
 
-        objectStore.clear(); // Limpiar la base de datos antes de restaurar los datos
+        // objectStore.clear(); // Limpiar la base de datos antes de restaurar los datos
 
         clientes.forEach((cliente) => {
-            const request = objectStore.add(cliente);
+            const request = objectStore.put(cliente);
             request.onerror = (event) => {
                 reject((event.target as IDBRequest).error);
             };
@@ -118,6 +119,53 @@ export async function restablecerDatosEnDB(clientes: Cliente[]): Promise<void> {
         transaction.onerror = () => {
             reject(new Error('Error al restaurar los datos en IndexedDB'));
         };
+    });
+}
+
+export async function eliminarDatosEnDB(): Promise<void> {
+
+    
+    return new Promise((resolve, reject) => {
+        if (!DB) {
+            reject(new Error('Base de datos no inicializada'));
+            return;
+        }
+
+
+
+        Swal.fire({
+            title: "Estás seguro?",
+            text: "Esta acción no puede revertirse",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#0ea5e9",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Borrar"
+          }).then((result) => {
+            if (result.isConfirmed) {
+            const transaction = DB!.transaction('clientsDB', 'readwrite');
+            const objectStore = transaction.objectStore('clientsDB');
+            const clearRequest = objectStore.clear();
+              
+              transaction.oncomplete = () => {
+                  Swal.fire({
+                    title: "Borrado!",
+                    text: "La base de datos se ha eliminado.",
+                    icon: "success"
+                  });
+                  resolve();
+              };
+
+              clearRequest.onerror = () => {
+                reject(new Error('Error al borrar los datos en IndexedDB'));
+                };
+            transaction.onerror = () => {
+                reject(new Error('Error al restaurar los datos en IndexedDB'));
+                };
+            }
+          });
+
+
     });
 }
 

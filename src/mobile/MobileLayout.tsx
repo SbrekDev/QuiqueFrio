@@ -18,7 +18,7 @@ export default function MobileLayout() {
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="text-center">
                 <p className="text-2xl text-slate-600 mb-1">Bienvenido</p>
-                <h2 className="text-6xl text-sky-500 font-bold uppercase">Enrique</h2>
+                <h2 className="text-6xl text-primary font-bold uppercase">Enrique</h2>
               </div>
             </div>
            </div>

@@ -91,7 +91,7 @@ export default function MobileClientDetails({cliente} : ClienteDetailsProp) {
 
             : null}
             <div className="flex w-full">
-                <button className="bg-sky-500 w-full py-2 px-4 text-white text-sm m-1 font-bold uppercase hover:bg-sky-600 cursor-pointer rounded-lg transition-colors flex items-center justify-center gap-1"
+                <button className="bg-primary w-full py-2 px-4 text-white text-sm m-1 font-bold uppercase hover:bg-hover cursor-pointer rounded-lg transition-colors flex items-center justify-center gap-1"
                 onClick={()=> navigate(`/mobile/editar/${cliente.id}`)}
                 ><EditIcon/>EDITAR</button>
                 <button 

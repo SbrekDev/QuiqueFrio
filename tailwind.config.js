@@ -14,6 +14,8 @@ export default {
       },
       colors: {
         primary: '#0ea5e9', 
+        secondary: '#38bdf8', 
+        light: '#bae6fd',
         hover: '#0284c7', 
       },
     },

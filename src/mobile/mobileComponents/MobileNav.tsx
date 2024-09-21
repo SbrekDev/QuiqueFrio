@@ -63,36 +63,36 @@ export default function MobileNav() {
                   <Link 
                   onClick={handleClick}
                   ref={(el) => linksRef.current[0] = el}
-                  className="hover:bg-sky-200 p-3 focus:bg-sky-500 focus:text-white rounded-lg text-2xl focus:font-bold focus:py-6 transition-all flex items-center gap-3 group focus:outline-none outline-none" 
-                  to='/mobile'><HomeIcon style={{ fontSize: '32px' }} className="text-sky-500 group-focus:text-white"/>Home</Link>
+                  className="hover:bg-light p-3 focus:bg-primary focus:text-white rounded-lg text-2xl focus:font-bold focus:py-6 transition-all flex items-center gap-3 group focus:outline-none outline-none" 
+                  to='/mobile'><HomeIcon style={{ fontSize: '32px' }} className="text-primary group-focus:text-white"/>Home</Link>
                   <Link 
                   onClick={handleClick}
                   ref={(el) => linksRef.current[1] = el}
-                  className="hover:bg-sky-200 p-3 focus:bg-sky-500 focus:text-white rounded-lg text-2xl focus:font-bold focus:py-6 transition-all flex items-center gap-3 group" 
-                  to='/mobile/resumen'><InsightsIcon style={{ fontSize: '32px' }} className="text-sky-500 group-focus:text-white"/>Resumen</Link>
+                  className="hover:bg-light p-3 focus:bg-primary focus:text-white rounded-lg text-2xl focus:font-bold focus:py-6 transition-all flex items-center gap-3 group" 
+                  to='/mobile/resumen'><InsightsIcon style={{ fontSize: '32px' }} className="text-primary group-focus:text-white"/>Resumen</Link>
                   <Link 
                   onClick={handleClick}
                   ref={(el) => linksRef.current[2] = el}
-                  className="hover:bg-sky-200 p-3 focus:bg-sky-500 focus:text-white rounded-lg text-2xl focus:font-bold focus:py-6 transition-all flex items-center gap-3 group" 
-                  to='/mobile/administrar-ingresos'><PaidIcon style={{ fontSize: '32px' }} className="text-sky-500 group-focus:text-white"/>Administrar Ingresos</Link>
+                  className="hover:bg-light p-3 focus:bg-primary focus:text-white rounded-lg text-2xl focus:font-bold focus:py-6 transition-all flex items-center gap-3 group" 
+                  to='/mobile/administrar-ingresos'><PaidIcon style={{ fontSize: '32px' }} className="text-primary group-focus:text-white"/>Administrar Ingresos</Link>
                   <Link 
                   onClick={handleClick}
                   ref={(el) => linksRef.current[3] = el}
-                  className="hover:bg-sky-200 p-3 focus:bg-sky-500 focus:text-white rounded-lg text-2xl focus:font-bold focus:py-6 transition-all flex items-center gap-3 group" 
-                  to='/mobile/clientes'><TocIcon style={{ fontSize: '42px' }} className="text-sky-500 group-focus:text-white"/>Lista de Clientes</Link>
+                  className="hover:bg-light p-3 focus:bg-primary focus:text-white rounded-lg text-2xl focus:font-bold focus:py-6 transition-all flex items-center gap-3 group" 
+                  to='/mobile/clientes'><TocIcon style={{ fontSize: '42px' }} className="text-primary group-focus:text-white"/>Lista de Clientes</Link>
                   <Link 
                   onClick={handleClick}
                   ref={(el) => linksRef.current[4] = el}
-                  className="hover:bg-sky-200 p-3 focus:bg-sky-500 focus:text-white rounded-lg text-2xl focus:font-bold focus:py-6 transition-all flex items-center gap-3 group" 
-                  to='/mobile/nuevo-cliente'><AddCircleIcon style={{ fontSize: '32px' }} className="text-sky-500 group-focus:text-white"/>Agregar Cliente</Link>
+                  className="hover:bg-light p-3 focus:bg-primary focus:text-white rounded-lg text-2xl focus:font-bold focus:py-6 transition-all flex items-center gap-3 group" 
+                  to='/mobile/nuevo-cliente'><AddCircleIcon style={{ fontSize: '32px' }} className="text-primary group-focus:text-white"/>Agregar Cliente</Link>
                   <Link 
                   onClick={handleClick}
                   ref={(el) => linksRef.current[5] = el}
-                  className="hover:bg-sky-200 p-3 focus:bg-sky-500 focus:text-white rounded-lg text-2xl focus:font-bold focus:py-6 transition-all flex items-center gap-3 group" 
-                  to='/mobile/reestablecer'><SettingsBackupRestoreIcon style={{ fontSize: '32px' }} className="text-sky-500 group-focus:text-white"/>Reestablecer Base de Datos</Link>
+                  className="hover:bg-light p-3 focus:bg-primary focus:text-white rounded-lg text-2xl focus:font-bold focus:py-6 transition-all flex items-center gap-3 group" 
+                  to='/mobile/reestablecer'><SettingsBackupRestoreIcon style={{ fontSize: '32px' }} className="text-primary group-focus:text-white"/>Reestablecer Base de Datos</Link>
               </div>
           </div>
-          <button className="absolute bottom-5 right-0 left-0 mx-auto bg-sky-500 w-[calc(100%-3rem)] p-3 text-white font-bold uppercase hover:bg-sky-600 cursor-pointer rounded transition-colors flex items-center justify-center gap-3 group"
+          <button className="absolute bottom-5 right-0 left-0 mx-auto bg-primary w-[calc(100%-3rem)] p-3 text-white font-bold uppercase hover:bg-hover cursor-pointer rounded transition-colors flex items-center justify-center gap-3 group"
           onClick={handleDownload}
           ><CloudDownloadIcon/>Copia de Seguridad</button> 
       </div> 

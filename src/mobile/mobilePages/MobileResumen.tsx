@@ -53,39 +53,39 @@ export default function MobileResumen() {
         <div className="container flex flex-col gap-2 w-full ">
           <div className='flex gap-2'>
             <div 
-              className="w-full rounded-lg shadow-lg bg-gradient-to-r from-sky-500 to-sky-400 hover:scale-105 transition-all flex flex-col justify-center text-center items-center py-8 px-5"
+              className="w-full rounded-lg shadow-lg bg-gradient-to-r from-primary to-secondary hover:scale-105 transition-all flex flex-col justify-center text-center items-center py-8 px-5"
               >
                 <h2 className="text-white font-black text-3xl">{pendientes}</h2>
                 <p className="text-white font-bold text-xl">Trabajos Pendientes</p>
               </div>
             <div 
-              className="w-full rounded-lg shadow-lg bg-gradient-to-r from-sky-500 to-sky-400 hover:scale-105 transition-all flex flex-col justify-center text-center items-center py-8 px-5"
+              className="w-full rounded-lg shadow-lg bg-gradient-to-r from-primary to-secondary hover:scale-105 transition-all flex flex-col justify-center text-center items-center py-8 px-5"
               >
                 <h2 className="text-white font-black text-3xl">{completados}</h2>
                 <p className="text-white font-bold text-xl">Trabajos Completos</p>
               </div>
           </div>
           <div 
-            className="rounded-lg shadow-lg bg-gradient-to-r from-sky-500 to-sky-400 hover:scale-105 transition-all flex flex-col justify-center items-center py-8 px-5"
+            className="rounded-lg shadow-lg bg-gradient-to-r from-primary to-secondary hover:scale-105 transition-all flex flex-col justify-center items-center py-8 px-5"
             >
               <h2 className="text-white font-black text-3xl">${gananciasTotales}</h2>
               <p className="text-green-700 text-xl font-bold">Ganancias</p>
             </div>
           <div 
-            className="rounded-lg shadow-lg bg-gradient-to-r from-sky-500 to-sky-400 hover:scale-105 transition-all flex flex-col justify-center items-center py-8 px-5"
+            className="rounded-lg shadow-lg bg-gradient-to-r from-primary to-secondary hover:scale-105 transition-all flex flex-col justify-center items-center py-8 px-5"
             >
               <h2 className="text-white font-black text-3xl">${gastosTotales}</h2>
               <p className="text-red-600 text-xl font-bold">Gastos</p>
             </div>
           <div 
-            className="rounded-lg shadow-lg bg-gradient-to-r from-sky-500 to-sky-400 hover:scale-105 transition-all flex flex-col justify-center items-center py-8 px-5"
+            className="rounded-lg shadow-lg bg-gradient-to-r from-primary to-secondary hover:scale-105 transition-all flex flex-col justify-center items-center py-8 px-5"
             >
               <h2 className="text-white font-black text-3xl">${ingresosTotales}</h2>
               <p className="text-amber-400 text-xl font-bold">Ingresos Totales</p>
             </div>
         </div>
         <button 
-        className="absolute mx-auto right-0 left-0 bottom-5 bg-sky-500 p-3 text-white font-bold uppercase hover:bg-sky-600 cursor-pointer rounded-full shadow-lg transition-colors flex items-center justify-center gap-3 w-40"
+        className="absolute mx-auto right-0 left-0 bottom-5 bg-primary p-3 text-white font-bold uppercase hover:bg-hover cursor-pointer rounded-full shadow-lg transition-colors flex items-center justify-center gap-3 w-40"
         onClick={handleReset}
         ><RestartAltIcon/>Reinciar</button>
     </div>

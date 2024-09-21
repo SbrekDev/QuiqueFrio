@@ -86,7 +86,7 @@ export default function ClientDetails({cliente} : ClienteDetailsProp) {
                     onClick={()=> generateClientPDF(cliente)}
                 ><DownloadIcon/>Descargar Comprobante</button>) 
             : null}
-            <button className="bg-sky-500 w-full p-2 text-white text-sm m-1 font-bold uppercase hover:bg-sky-600 cursor-pointer rounded-lg transition-colors flex items-center justify-center gap-1"
+            <button className="bg-primary w-full p-2 text-white text-sm m-1 font-bold uppercase hover:bg-hover cursor-pointer rounded-lg transition-colors flex items-center justify-center gap-1"
             onClick={()=> navigate(`/editar/${cliente.id}`)}
             ><EditIcon/>Editar</button>
             <button 

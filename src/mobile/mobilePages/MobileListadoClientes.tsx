@@ -41,7 +41,7 @@ export default function MobileListadoClientes() {
                 <p className="text-slate-400 font-bold w-40">Estado Actual</p>
                 <select
                   id="estadoSelectFind"
-                  className="w-full bg-transparent border-b-2 focus:outline-none focus:border-b-sky-500 bg-slate-50 p-2"
+                  className="w-full bg-transparent border-b-2 focus:outline-none focus:border-b-primary bg-slate-50 p-2"
                   onChange={(e)=> handleChange(e.target.value)}>
                     <option value="Todos">Todos</option>
                     <option value="Pendiente">Pendientes</option>
@@ -54,7 +54,7 @@ export default function MobileListadoClientes() {
                   type="text"
                   id="buscar"
                   placeholder="Nombre y Apellido"
-                  className="p-2 bg-transparent border-b-2 focus:outline-none focus:border-b-sky-500 bg-slate-50 w-full" 
+                  className="p-2 bg-transparent border-b-2 focus:outline-none focus:border-b-primary bg-slate-50 w-full" 
                   onChange={handleSearchChange}
                 />
               </div>

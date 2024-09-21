@@ -41,7 +41,7 @@ export default function ListadoClientes() {
                 <p className="text-slate-400 font-bold">Estado Actual</p>
                 <select
                   id="estadoSelectFind"
-                  className=" w-40 bg-transparent border-b-2 focus:outline-none focus:border-b-sky-500 bg-slate-50 p-2"
+                  className=" w-40 bg-transparent border-b-2 focus:outline-none focus:border-b-primary bg-slate-50 p-2"
                   onChange={(e)=> handleChange(e.target.value)}>
                     <option value="Todos">Todos</option>
                     <option value="Pendiente">Pendientes</option>
@@ -54,7 +54,7 @@ export default function ListadoClientes() {
                   type="text"
                   id="buscar"
                   placeholder="Nombre y Apellido"
-                  className=" w-30 p-2 bg-transparent border-b-2 focus:outline-none focus:border-b-sky-500 bg-slate-50" 
+                  className=" w-30 p-2 bg-transparent border-b-2 focus:outline-none focus:border-b-primary bg-slate-50" 
                   onChange={handleSearchChange}
                 />
               </div>

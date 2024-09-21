@@ -41,31 +41,31 @@ export default function Sidebar() {
                   <div className="py-5 px-1 2xl:px-5 mt-5 flex flex-col text-slate-700">
                       <Link 
                       ref={(el) => linksRef.current[0] = el}
-                      className="hover:bg-sky-200 p-3 focus:bg-sky-500 focus:text-white rounded-lg text-xl focus:font-bold focus:py-6 transition-all flex items-center gap-3 group focus:outline-none outline-none" 
-                      to='/'><HomeIcon className="text-sky-500 group-focus:text-white"/>Home</Link>
+                      className="hover:bg-light p-3 focus:bg-primary focus:text-white rounded-lg text-xl focus:font-bold focus:py-6 transition-all flex items-center gap-3 group focus:outline-none outline-none" 
+                      to='/'><HomeIcon className="text-primary group-focus:text-white"/>Home</Link>
                       <Link 
                       ref={(el) => linksRef.current[1] = el}
-                      className="hover:bg-sky-200 p-3 focus:bg-sky-500 focus:text-white rounded-lg text-xl focus:font-bold focus:py-6 transition-all flex items-center gap-3 group" 
-                      to='/resumen'><InsightsIcon className="text-sky-500 group-focus:text-white"/>Resumen</Link>
+                      className="hover:bg-light p-3 focus:bg-primary focus:text-white rounded-lg text-xl focus:font-bold focus:py-6 transition-all flex items-center gap-3 group" 
+                      to='/resumen'><InsightsIcon className="text-primary group-focus:text-white"/>Resumen</Link>
                       <Link 
                       ref={(el) => linksRef.current[2] = el}
-                      className="hover:bg-sky-200 p-3 focus:bg-sky-500 focus:text-white rounded-lg text-xl focus:font-bold focus:py-6 transition-all flex items-center gap-3 group" 
-                      to='/administrar-ingresos'><PaidIcon className="text-sky-500 group-focus:text-white"/>Administrar Ingresos</Link>
+                      className="hover:bg-light p-3 focus:bg-primary focus:text-white rounded-lg text-xl focus:font-bold focus:py-6 transition-all flex items-center gap-3 group" 
+                      to='/administrar-ingresos'><PaidIcon className="text-primary group-focus:text-white"/>Administrar Ingresos</Link>
                       <Link 
                       ref={(el) => linksRef.current[3] = el}
-                      className="hover:bg-sky-200 p-3 focus:bg-sky-500 focus:text-white rounded-lg text-xl focus:font-bold focus:py-6 transition-all flex items-center gap-3 group" 
-                      to='/clientes'><TocIcon className="text-sky-500 group-focus:text-white"/>Lista de Clientes</Link>
+                      className="hover:bg-light p-3 focus:bg-primary focus:text-white rounded-lg text-xl focus:font-bold focus:py-6 transition-all flex items-center gap-3 group" 
+                      to='/clientes'><TocIcon className="text-primary group-focus:text-white"/>Lista de Clientes</Link>
                       <Link 
                       ref={(el) => linksRef.current[4] = el}
-                      className="hover:bg-sky-200 p-3 focus:bg-sky-500 focus:text-white rounded-lg text-xl focus:font-bold focus:py-6 transition-all flex items-center gap-3 group" 
-                      to='/nuevo-cliente'><AddCircleIcon className="text-sky-500 group-focus:text-white"/>Agregar Cliente</Link>
+                      className="hover:bg-light p-3 focus:bg-primary focus:text-white rounded-lg text-xl focus:font-bold focus:py-6 transition-all flex items-center gap-3 group" 
+                      to='/nuevo-cliente'><AddCircleIcon className="text-primary group-focus:text-white"/>Agregar Cliente</Link>
                       <Link 
                       ref={(el) => linksRef.current[5] = el}
-                      className="hover:bg-sky-200 p-3 focus:bg-sky-500 focus:text-white rounded-lg text-xl focus:font-bold focus:py-6 transition-all flex items-center gap-3 group" 
-                      to='/reestablecer'><SettingsBackupRestoreIcon className="text-sky-500 group-focus:text-white"/>Reestablecer Base de Datos</Link>
+                      className="hover:bg-light p-3 focus:bg-primary focus:text-white rounded-lg text-xl focus:font-bold focus:py-6 transition-all flex items-center gap-3 group" 
+                      to='/reestablecer'><SettingsBackupRestoreIcon className="text-primary group-focus:text-white"/>Reestablecer Base de Datos</Link>
                   </div>
               </div>
-              <button className="bg-sky-500 w-full p-3 text-white font-bold uppercase hover:bg-sky-600 cursor-pointer rounded transition-colors flex items-center justify-center gap-3 group"
+              <button className="bg-primary w-full p-3 text-white font-bold uppercase hover:bg-hover cursor-pointer rounded transition-colors flex items-center justify-center gap-3 group"
               onClick={handleDownload}
               ><CloudDownloadIcon/>Copia de Seguridad</button>
       </aside>

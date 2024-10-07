@@ -8,7 +8,7 @@ export default defineConfig({
     react(), 
     VitePWA({ 
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg', 'logo.svg', 'logo.png', 'icon.svg', 'wave.svg'],
+      includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg', 'logo-original.png','logo-original-2.png','logo-icono-original.png', 'wave.svg'],
       manifest: {
         name: 'Quique Frío APP',
         short_name: 'Quique Frío APP',

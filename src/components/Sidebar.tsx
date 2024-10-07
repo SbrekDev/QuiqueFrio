@@ -37,7 +37,7 @@ export default function Sidebar() {
     <div className="p-5">
       <aside className="w-80 2xl:w-96 h-full bg-white shadow-lg rounded-lg flex flex-col justify-between p-5">
               <div>
-                  <Link to='/' className="hover:cursor-pointer"><img src="/logo.svg" alt="logo quique frío" className="p-8"/></Link>
+                  <Link to='/' className="hover:cursor-pointer"><img src="/logo-original-2.png" alt="logo quique frío" className="p-8"/></Link>
                   <div className="py-5 px-1 2xl:px-5 mt-5 flex flex-col text-slate-700">
                       <Link 
                       ref={(el) => linksRef.current[0] = el}

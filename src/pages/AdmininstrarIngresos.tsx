@@ -53,7 +53,7 @@ export default function AdministrarIngresos() {
                 <input 
                 type="number"
                 id="ingresos"
-                placeholder="Ingresar Ingresos Totales"
+                placeholder="Ingresar Dinero"
                 className=" w-full p-2 mt-2 bg-transparent border-b-2 focus:outline-none focus:border-b-primary bg-slate-50"
                 {...register('ingresos',{
                   pattern: {

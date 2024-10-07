@@ -1,5 +1,5 @@
 import { useForm} from "react-hook-form";
-import Error from "../../components/Error";
+import MobileError from "../mobileComponents/MobileError";
 import { Cliente, DraftCliente} from "../../types";
 import { useClientStore } from "../../store";
 import { useNavigate, useParams } from "react-router-dom";
@@ -72,7 +72,7 @@ export default function MobileEditarCliente() {
     if(isLoading) return 'Cargando...'
 
     return (
-      <div className="flex flex-col justify-center items-center mx-auto h-full p-2 mt-[195px]">
+      <div className="flex flex-col justify-start items-center mx-auto h-full p-2 mt-[195px]">
           <form 
           className=" bg-white shadow-lg rounded-lg p-5 w-full"
           onSubmit={handleSubmit(handleSubmitForm)}
@@ -89,7 +89,7 @@ export default function MobileEditarCliente() {
                     required: 'El nombre del cliente es obligatorio'
                   })}
                   />
-                  {errors.nombre && <Error>{errors.nombre?.message?.toString()}</Error>}
+                  {errors.nombre && <MobileError>{errors.nombre?.message?.toString()}</MobileError>}
                   
                   
               </div>
@@ -105,7 +105,7 @@ export default function MobileEditarCliente() {
                       required: 'La dirección del cliente es obligatoria'
                     })}
                     />
-                    {errors.direccion && <Error>{errors.direccion?.message?.toString()}</Error>}
+                    {errors.direccion && <MobileError>{errors.direccion?.message?.toString()}</MobileError>}
                 </div>
                 <div className="mb-5">
                     <label htmlFor="localidad" className="text-gray-700 uppercase font-bold">Localidad</label>
@@ -118,7 +118,7 @@ export default function MobileEditarCliente() {
                       required: 'La localidad del cliente es obligatoria'
                     })}
                     />
-                    {errors.localidad && <Error>{errors.localidad?.message?.toString()}</Error>}
+                    {errors.localidad && <MobileError>{errors.localidad?.message?.toString()}</MobileError>}
                 </div>
 
  
@@ -136,7 +136,7 @@ export default function MobileEditarCliente() {
                         message: "Solo se permiten números"
                     }})}
                     />
-                    {errors.telefono && <Error>{errors.telefono?.message?.toString()}</Error>}
+                    {errors.telefono && <MobileError>{errors.telefono?.message?.toString()}</MobileError>}
                 </div>
                 <div className="mb-5">
                     <label htmlFor="email" className="text-gray-700 uppercase font-bold">Email</label>
@@ -152,7 +152,7 @@ export default function MobileEditarCliente() {
                       }
                     })} 
                     />
-                    {errors.email && <Error>{errors.email?.message?.toString()}</Error>}
+                    {errors.email && <MobileError>{errors.email?.message?.toString()}</MobileError>}
                 </div>
               <div className="mb-5">
                   <label htmlFor="descripcion" className="text-gray-700 uppercase font-bold">Descripcion del Servicio</label>
@@ -161,11 +161,15 @@ export default function MobileEditarCliente() {
                   placeholder="Describe el servicio realizado"
                   className=" w-full p-2 mt-2 bg-transparent border-b-2 focus:outline-none focus:border-b-primary bg-slate-50"
                   {...register('descripcion',{
-                    required: 'La descripcion es obligatoria'
+                    required: 'La descripcion es obligatoria',
+                    maxLength: {
+                      value: 150,
+                      message: 'La descripción no puede exceder los 150 caracteres',
+                    }
                     
                   })}
                   />
-                  {errors.descripcion && <Error>{errors.descripcion?.message?.toString()}</Error>}
+                  {errors.descripcion && <MobileError>{errors.descripcion?.message?.toString()}</MobileError>}
               </div>
               <div className="mb-5">
                     <label htmlFor="precio" className="text-gray-700 uppercase font-bold">Precio</label>
@@ -180,7 +184,7 @@ export default function MobileEditarCliente() {
                         message: "Solo se permiten números"
                     }})}
                     />
-                    {errors.precio && <Error>{errors.precio?.message?.toString()}</Error>}
+                    {errors.precio && <MobileError>{errors.precio?.message?.toString()}</MobileError>}
                 </div>
               <div className="flex space-x-3">
                 <div className="mb-5">

@@ -146,7 +146,11 @@ export default function EditarCliente() {
                   placeholder="Describe el servicio realizado"
                   className=" w-full p-2 mt-2 bg-transparent border-b-2 focus:outline-none focus:border-b-primary bg-slate-50"
                   {...register('descripcion',{
-                    required: 'La descripcion es obligatoria'
+                    required: 'La descripcion es obligatoria',
+                    maxLength: {
+                      value: 150,
+                      message: 'La descripción no puede exceder los 150 caracteres',
+                    }
                     
                   })}
                   />

@@ -55,7 +55,7 @@ export const generateClientPDF = (data: Cliente) => {
     const doc = new jsPDF();
     const pageWidth = doc.internal.pageSize.getWidth();
     const imgWidth = 70; 
-    const imgHeight = 42; 
+    const imgHeight = 52; 
     const x = (pageWidth - imgWidth) / 2;
     const maxWidth = 165;
 

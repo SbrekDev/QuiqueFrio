@@ -13,7 +13,7 @@ export default function MobileLayout() {
           </div>
         </header>
           
-        <div className="flex flex-col gap-20 mt-24 items-center justify-start w-full z-20">
+        <div className="flex flex-col items-center justify-center w-full z-20">
             
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="text-center">

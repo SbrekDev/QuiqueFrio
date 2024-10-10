@@ -47,7 +47,7 @@ export default function MobileNav() {
     <>
     <div 
       className={`w-full p-2 shadow-lg bg-slate-100 fixed right-0 left-0 top-0 z-30 flex 
-        ${clicked ? 'bg-slate-100 h-screen flex flex-col justify-start p-2 text-inherit' : 'h-20 justify-center'}
+        ${clicked ? 'bg-slate-100 h-screen flex flex-col justify-start p-2 text-slate-900' : 'h-20 justify-center'}
         ${location.pathname === '/mobile' ? `text-white ${clicked ? 'bg-slate-100' : 'bg-transparent'} shadow-none` : ''}
         `}
     >

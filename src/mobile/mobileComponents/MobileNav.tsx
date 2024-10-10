@@ -10,6 +10,7 @@ import { obtenerDatosDesdeDB } from "../../database/db";
 import HomeIcon from '@mui/icons-material/Home';
 import { useEffect, useRef, useState } from "react";
 import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
 
 export default function MobileNav() {
 
@@ -48,7 +49,7 @@ export default function MobileNav() {
     <div 
       className={`w-full p-2 shadow-lg bg-slate-100 fixed right-0 left-0 top-0 z-30 flex 
         ${clicked ? 'bg-slate-100 h-screen flex flex-col justify-start p-2' : 'h-20 justify-center'}
-        ${location.pathname === '/mobile' ? `text-white ${clicked ? 'bg-slate-100 text-slate-900' : 'bg-transparent'} shadow-none` : ''}
+        ${location.pathname === '/mobile' ? `text-white ${clicked ? 'bg-slate-100' : 'bg-transparent'} shadow-none` : ''}
         `}
     >
       <div className="flex w-full justify-between pl-5 pr-5 items-center">
@@ -57,10 +58,17 @@ export default function MobileNav() {
           ) : (
             <Link to='/mobile'><img src="/logo-original.png" alt="logo quique" className="h-16" /></Link>  
           )}  
-          <MenuIcon 
-            onClick={handleClick}
-            style={{ fontSize: '42px' }}
-          />     
+          {!clicked ? (
+            <MenuIcon 
+              onClick={handleClick}
+              style={{ fontSize: '42px' }}
+            />  
+          ) : (
+            <CloseIcon 
+              onClick={handleClick}
+              style={{ fontSize: '42px', color:'black'}}
+            />  
+          )}   
       </div>
 
       {clicked ? (

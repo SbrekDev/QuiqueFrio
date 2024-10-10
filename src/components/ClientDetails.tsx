@@ -12,9 +12,11 @@ type ClienteDetailsProp= {
     cliente: Cliente
 }
 
+
 export default function ClientDetails({cliente} : ClienteDetailsProp) {
 
-
+    const {updateCliente, getClienteById} = useClientStore()
+    const id = cliente.id
     const [clicked, setClicked] = useState<boolean>(false)
 
     const navigate = useNavigate()
@@ -22,6 +24,23 @@ export default function ClientDetails({cliente} : ClienteDetailsProp) {
 
     function handleClick() {
         setClicked(prevClicked => !prevClicked);
+    }
+
+    const [, setEstadoFinal] = useState<string>(cliente?.estado!)
+
+    function handleEstadoCliente(){
+
+        getClienteById(id!)
+        setEstadoFinal((prevEstado)=> {
+            const nuevoEstado = prevEstado === 'Pendiente' ? 'Completado' : 'Pendiente';
+
+            const clienteActualizado = {
+                ...cliente,
+                estado: nuevoEstado
+            };  
+            updateCliente(clienteActualizado) 
+            return nuevoEstado
+        })          
     }
 
 
@@ -80,11 +99,18 @@ export default function ClientDetails({cliente} : ClienteDetailsProp) {
 
 
         <div className="xl:flex">
-            {clicked ? (            
-                <button 
-                    className="bg-green-500 w-full p-2 text-white text-sm m-1 font-bold uppercase hover:bg-green-600 cursor-pointer rounded-lg transition-colors flex items-center justify-center gap-1"
-                    onClick={()=> generateClientPDF(cliente)}
-                ><DownloadIcon/>Descargar Comprobante</button>) 
+            {clicked ? ( 
+                <>           
+                    <button 
+                        className="bg-green-500 w-full p-2 text-white text-sm m-1 font-bold uppercase hover:bg-green-600 cursor-pointer rounded-lg transition-colors flex items-center justify-center gap-1"
+                        onClick={()=> generateClientPDF(cliente)}
+                    ><DownloadIcon/>Descargar Comprobante</button>
+                    <button 
+                        className="bg-amber-500 w-full p-2 text-white text-sm m-1 font-bold uppercase hover:bg-green-600 cursor-pointer rounded-lg transition-colors flex items-center justify-center gap-1"
+                        onClick={handleEstadoCliente}
+                    ><DownloadIcon/>Cambiar Estado</button>
+                </>
+            ) 
             : null}
             <button className="bg-primary w-full p-2 text-white text-sm m-1 font-bold uppercase hover:bg-hover cursor-pointer rounded-lg transition-colors flex items-center justify-center gap-1"
             onClick={()=> navigate(`/editar/${cliente.id}`)}

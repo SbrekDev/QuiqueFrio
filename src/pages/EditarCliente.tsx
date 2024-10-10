@@ -35,7 +35,6 @@ export default function EditarCliente() {
     }
 
     
-    
     const handleSubmitForm = (data : DraftCliente) => {
       
       getClienteById(id!)

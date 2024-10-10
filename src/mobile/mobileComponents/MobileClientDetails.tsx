@@ -5,6 +5,7 @@ import MobileClientDetailItem from "./MobileClientDetailItem"
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import DownloadIcon from '@mui/icons-material/Download';
+import CachedIcon from '@mui/icons-material/Cached';
 import { useState } from "react";
 import { formatCash, generateClientPDF } from "../../utils";
 
@@ -16,12 +17,30 @@ export default function MobileClientDetails({cliente} : ClienteDetailsProp) {
 
 
     const [clicked, setClicked] = useState<boolean>(false)
-
+    const {updateCliente, getClienteById} = useClientStore()
+    const id = cliente.id
     const navigate = useNavigate()
     const {deleteCliente} = useClientStore()
 
     function handleClick() {
         setClicked(prevClicked => !prevClicked);
+    }
+
+    const [, setEstadoFinal] = useState<string>(cliente?.estado!)
+
+    function handleEstadoCliente(){
+
+        getClienteById(id!)
+        setEstadoFinal((prevEstado)=> {
+            const nuevoEstado = prevEstado === 'Pendiente' ? 'Completado' : 'Pendiente';
+
+            const clienteActualizado = {
+                ...cliente,
+                estado: nuevoEstado
+            };  
+            updateCliente(clienteActualizado) 
+            return nuevoEstado
+        })          
     }
 
 
@@ -83,10 +102,16 @@ export default function MobileClientDetails({cliente} : ClienteDetailsProp) {
         <div className={`flex p-2 w-full ${clicked ? 'flex-col' : ''}`}>
             {clicked ? (  
                 <div className="flex w-full">
+                <>           
                     <button 
-                        className={`bg-green-500 w-full p-2 text-white text-sm m-1 font-bold uppercase hover:bg-green-600 cursor-pointer rounded-lg transition-colors flex items-center justify-center gap-1 ${clicked ? ' gap-5' : ''}`}
+                        className="bg-green-500 w-full p-2 text-white text-wrap text-sm m-1 font-bold uppercase hover:bg-green-600 cursor-pointer rounded-lg transition-colors flex items-center justify-center gap-1"
                         onClick={()=> generateClientPDF(cliente)}
-                    ><DownloadIcon/>Descargar Comprobante</button> 
+                    ><DownloadIcon />Descargar PDF</button>
+                    <button 
+                        className="bg-amber-500 w-full p-2 text-white text-sm m-1 font-bold uppercase hover:bg-amber-600 cursor-pointer rounded-lg transition-colors flex items-center justify-center gap-1"
+                        onClick={handleEstadoCliente}
+                    ><CachedIcon/>Cambiar Estado</button>
+                </>
                 </div>  )        
 
             : null}

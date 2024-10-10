@@ -5,6 +5,7 @@ import ClientDetailItem from "./ClientDetailItem"
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import DownloadIcon from '@mui/icons-material/Download';
+import CachedIcon from '@mui/icons-material/Cached';
 import { useState } from "react";
 import { formatCash, generateClientPDF } from "../utils";
 
@@ -53,7 +54,7 @@ export default function ClientDetails({cliente} : ClienteDetailsProp) {
     
     >
       <div className={` ${clicked ? 'grid gap-8 justify-items-center grid-cols-3 mb-5' : 'flex justify-center items-center gap-8 xl:gap-15 2xl:gap-25'}`}>
-      <ClientDetailItem 
+        <ClientDetailItem 
             label="Nombre"
             data={cliente.nombre}
         />
@@ -102,13 +103,13 @@ export default function ClientDetails({cliente} : ClienteDetailsProp) {
             {clicked ? ( 
                 <>           
                     <button 
-                        className="bg-green-500 w-full p-2 text-white text-sm m-1 font-bold uppercase hover:bg-green-600 cursor-pointer rounded-lg transition-colors flex items-center justify-center gap-1"
+                        className="bg-green-500 w-full p-2 text-white text-wrap text-sm m-1 font-bold uppercase hover:bg-green-600 cursor-pointer rounded-lg transition-colors flex items-center justify-center gap-1"
                         onClick={()=> generateClientPDF(cliente)}
-                    ><DownloadIcon/>Descargar Comprobante</button>
+                    ><DownloadIcon />Descargar PDF</button>
                     <button 
-                        className="bg-amber-500 w-full p-2 text-white text-sm m-1 font-bold uppercase hover:bg-green-600 cursor-pointer rounded-lg transition-colors flex items-center justify-center gap-1"
+                        className="bg-amber-500 w-full p-2 text-white text-sm m-1 font-bold uppercase hover:bg-amber-600 cursor-pointer rounded-lg transition-colors flex items-center justify-center gap-1"
                         onClick={handleEstadoCliente}
-                    ><DownloadIcon/>Cambiar Estado</button>
+                    ><CachedIcon/>Cambiar Estado</button>
                 </>
             ) 
             : null}

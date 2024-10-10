@@ -46,10 +46,17 @@ export default function MobileNav() {
   return (
     <>
     <div 
-      className={`w-full p-2 shadow-lg bg-slate-100  fixed right-0 left-0 top-0 z-30 flex ${clicked ? 'h-screen flex flex-col justify-start p-2' : 'h-20 justify-center'}`}
+      className={`w-full p-2 shadow-lg bg-slate-100 fixed right-0 left-0 top-0 z-30 flex 
+        ${clicked ? 'bg-slate-100 h-screen flex flex-col justify-start p-2 text-inherit' : 'h-20 justify-center'}
+        ${location.pathname === '/mobile' ? `text-white ${clicked ? 'bg-slate-100' : 'bg-transparent'} shadow-none` : ''}
+        `}
     >
       <div className="flex w-full justify-between pl-5 pr-5 items-center">
-        <Link to='/mobile'><img src="/logo-original.png" alt="logo quique" className="h-16" /></Link>    
+          {location.pathname === '/mobile' && !clicked ? (
+            <Link to='/mobile'><img src="/logo-original-white.png" alt="logo quique" className="h-16" /></Link>  
+          ) : (
+            <Link to='/mobile'><img src="/logo-original.png" alt="logo quique" className="h-16" /></Link>  
+          )}  
           <MenuIcon 
             onClick={handleClick}
             style={{ fontSize: '42px' }}

@@ -1,6 +1,7 @@
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import { useClientStore } from '../../store';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 
 export default function MobileResumen() {
@@ -52,37 +53,37 @@ export default function MobileResumen() {
     <div className="flex justify-center items-center mx-auto p-2 h-full w-full">
         <div className="container flex flex-col gap-2 w-full ">
           <div className='flex gap-2'>
-            <div 
+            <Link to='/mobile/clientes' 
               className="w-full rounded-lg shadow-lg bg-gradient-to-r from-primary to-secondary transition-all flex flex-col justify-center text-center items-center py-8 px-5"
               >
                 <h2 className="text-white font-black text-3xl">{pendientes}</h2>
                 <p className="text-white font-bold text-xl">Trabajos Pendientes</p>
-              </div>
-            <div 
+              </Link>
+            <Link to='/mobile/clientes' 
               className="w-full rounded-lg shadow-lg bg-gradient-to-r from-primary to-secondary transition-all flex flex-col justify-center text-center items-center py-8 px-5"
               >
                 <h2 className="text-white font-black text-3xl">{completados}</h2>
                 <p className="text-white font-bold text-xl">Trabajos Completos</p>
-              </div>
+              </Link>
           </div>
-          <div 
+          <Link to='/mobile/administrar-ingresos' 
             className="rounded-lg shadow-lg bg-gradient-to-r from-primary to-secondary transition-all flex flex-col justify-center items-center py-8 px-5"
             >
               <h2 className="text-white font-black text-3xl">${gananciasTotales}</h2>
               <p className="text-green-700 text-xl font-bold">Ganancias</p>
-            </div>
-          <div 
+            </Link>
+          <Link to='/mobile/administrar-ingresos' 
             className="rounded-lg shadow-lg bg-gradient-to-r from-primary to-secondary transition-all flex flex-col justify-center items-center py-8 px-5"
             >
               <h2 className="text-white font-black text-3xl">${gastosTotales}</h2>
               <p className="text-red-600 text-xl font-bold">Gastos</p>
-            </div>
-          <div 
+            </Link>
+          <Link to='/mobile/administrar-ingresos' 
             className="rounded-lg shadow-lg bg-gradient-to-r from-primary to-secondary transition-all flex flex-col justify-center items-center py-8 px-5"
             >
               <h2 className="text-white font-black text-3xl">${ingresosTotales}</h2>
               <p className="text-amber-400 text-xl font-bold">Ingresos Totales</p>
-            </div>
+            </Link>
         </div>
         <button 
         className="absolute mx-auto right-0 left-0 bottom-5 bg-primary p-3 text-white font-bold uppercase hover:bg-hover cursor-pointer rounded-full shadow-lg transition-colors flex items-center justify-center gap-3 w-40"

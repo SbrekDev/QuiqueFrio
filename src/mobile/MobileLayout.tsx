@@ -7,7 +7,7 @@ export default function MobileLayout() {
       <div className="custom-container overflow-hidden relative bg-white shadow-lg space-y-10 w-full h-full flex items-start justify-center">
         <div className="flex justify-center items-center">
 
-        <header className='absolute right-0 left-0 top-0 w-[2300px] rotate-180'>
+        <header className='absolute right-0 left-0 top-0 w-[2500px] rotate-180'>
           <div className="background">
             <img src="/wave.svg" alt="animated waves" className="w-full h-full" />
           </div>

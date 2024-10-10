@@ -52,22 +52,16 @@ export default function MobileClientDetails({cliente} : ClienteDetailsProp) {
         onClick={handleClick}
     
     >
-      <div className={` ${clicked ? 'grid gap-4 justify-items-start p-5 grid-cols-2 mb-5' : 'flex justify-evenly gap-4 items-center w-full pl-5'}`}>
-        <MobileClientDetailItem 
-            label="Nombre"
-            data={cliente.nombre}
-        />
-        <MobileClientDetailItem 
-            label="direccion"
-            data={cliente.direccion}
-        />
-
-        <div className={` ${clicked ? 'block' : 'hidden sm:block'} `}>
-            <MobileClientDetailItem
-                label="telefono"
-                data={cliente.telefono}
+      <div className={` ${clicked ? 'grid gap-4 justify-items-start p-5 grid-cols-1 mb-5' : 'flex justify-evenly gap-4 items-center w-full pl-5'}`}>
+            <MobileClientDetailItem 
+                label="Nombre"
+                data={cliente.nombre}
             />
-        </div>
+            <MobileClientDetailItem 
+                label="direccion"
+                data={cliente.direccion}
+            />
+            
 
         {clicked ? (
             <>
@@ -76,6 +70,10 @@ export default function MobileClientDetails({cliente} : ClienteDetailsProp) {
                     label="Email"
                     data={cliente.email}
                 /> 
+                <MobileClientDetailItem
+                    label="telefono"
+                    data={cliente.telefono}
+                />
                 <MobileClientDetailItem 
                     label="Ultima Visita"
                     data={cliente.ultimaVisita.toString()}
@@ -101,17 +99,17 @@ export default function MobileClientDetails({cliente} : ClienteDetailsProp) {
 
         <div className={`flex p-2 w-full ${clicked ? 'flex-col' : ''}`}>
             {clicked ? (  
-                <div className="flex w-full">
-                <>           
+                <div className="flex flex-col w-full">
+                          
                     <button 
-                        className="bg-green-500 w-full p-2 text-white text-wrap text-sm m-1 font-bold uppercase hover:bg-green-600 cursor-pointer rounded-lg transition-colors flex items-center justify-center gap-1"
+                        className="bg-green-500 p-2 text-white text-wrap text-sm m-1 font-bold uppercase hover:bg-green-600 cursor-pointer rounded-lg transition-colors flex items-center justify-center gap-1"
                         onClick={()=> generateClientPDF(cliente)}
                     ><DownloadIcon />Descargar PDF</button>
                     <button 
-                        className="bg-amber-500 w-full p-2 text-white text-sm m-1 font-bold uppercase hover:bg-amber-600 cursor-pointer rounded-lg transition-colors flex items-center justify-center gap-1"
+                        className="bg-amber-500 p-2 text-white text-sm m-1 font-bold uppercase hover:bg-amber-600 cursor-pointer rounded-lg transition-colors flex items-center justify-center gap-1"
                         onClick={handleEstadoCliente}
                     ><CachedIcon/>Cambiar Estado</button>
-                </>
+                
                 </div>  )        
 
             : null}

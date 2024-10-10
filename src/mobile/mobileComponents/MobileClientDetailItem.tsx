@@ -9,7 +9,7 @@ export default function MobileClientDetailItem({label, data}: ClientDetailItemPr
   return (
     <>
         {data === '$' || data === '' ? null : (
-        <div className="w-40 break-all">
+        <div className="w-full break-all">
           <label className="text-slate-500 text-sm uppercase font-bold">{label}:</label>
           <p className="text-wrap">{data}</p>
         </div>

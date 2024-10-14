@@ -47,7 +47,7 @@ export default function MobileClientDetails({cliente} : ClienteDetailsProp) {
   return (
     <div 
         className={`flex flex-col  py-2 shadow-md rounded-lg w-full border-l-8 transition-all 
-            ${cliente.estado === "Completado" ? 'border-l-green-500' : 'border-l-amber-400'}  
+            ${cliente.estado === "Completado" ? 'border-l-green-500 hover:' : 'border-l-amber-400 hover:bg-amber-100'}  
             ${clicked ? `${cliente.estado === "Completado" ? 'bg-green-100' : 'bg-amber-100'}` : 'bg-white items-center'} hover:cursor-pointer`}
         onClick={handleClick}
     

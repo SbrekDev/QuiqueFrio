@@ -7,19 +7,24 @@ const isDesktop = window.innerWidth >= 1024;
 
 
 export function formatearFecha(fecha: string): string {
-  const meses = [
-    "enero", "febrero", "marzo", "abril", "mayo", "junio",
-    "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"
-  ];
 
-  const [year, mes, dia] = fecha.split("-").map(Number);
-  const fechaObjeto = new Date(year, mes - 1, dia)
+    if(fecha !== ''){
+        const meses = [
+            "enero", "febrero", "marzo", "abril", "mayo", "junio",
+            "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"
+        ];
 
-  // Obtener el nombre del mes y el año
-  const nombreMes = meses[fechaObjeto.getMonth()];
-  const yearFormateado = fechaObjeto.getFullYear();
+        const [year, mes, dia] = fecha.split("-").map(Number);
+        const fechaObjeto = new Date(year, mes - 1, dia)
 
-  return `${dia} de ${nombreMes} de ${yearFormateado}`;
+        // Obtener el nombre del mes y el año
+        const nombreMes = meses[fechaObjeto.getMonth()];
+        const yearFormateado = fechaObjeto.getFullYear();
+
+        return `${dia} de ${nombreMes} de ${yearFormateado}`;
+    } else return ''
+
+
 }
 
 

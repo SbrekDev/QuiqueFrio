@@ -4,6 +4,25 @@ import { Cliente } from "./types";
 
 const isDesktop = window.innerWidth >= 1024;
 
+
+
+export function formatearFecha(fecha: string): string {
+  const meses = [
+    "enero", "febrero", "marzo", "abril", "mayo", "junio",
+    "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"
+  ];
+
+  const [year, mes, dia] = fecha.split("-").map(Number);
+  const fechaObjeto = new Date(year, mes - 1, dia)
+
+  // Obtener el nombre del mes y el año
+  const nombreMes = meses[fechaObjeto.getMonth()];
+  const yearFormateado = fechaObjeto.getFullYear();
+
+  return `${dia} de ${nombreMes} de ${yearFormateado}`;
+}
+
+
 export function descargarDatos(clientes: Cliente[]) {  
     const blob = new Blob([JSON.stringify(clientes, null, 2)], { type: 'application/json' });
     const url = URL.createObjectURL(blob);

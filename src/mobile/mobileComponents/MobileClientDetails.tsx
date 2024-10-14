@@ -7,7 +7,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import DownloadIcon from '@mui/icons-material/Download';
 import CachedIcon from '@mui/icons-material/Cached';
 import { useState } from "react";
-import { formatCash, generateClientPDF } from "../../utils";
+import { formatCash, formatearFecha, generateClientPDF } from "../../utils";
 
 type ClienteDetailsProp= {
     cliente: Cliente
@@ -76,11 +76,11 @@ export default function MobileClientDetails({cliente} : ClienteDetailsProp) {
                 />
                 <MobileClientDetailItem 
                     label="Ultima Visita"
-                    data={cliente.ultimaVisita.toString()}
+                    data={formatearFecha(cliente.ultimaVisita.toString())}
                 /> 
                 <MobileClientDetailItem 
                     label="Próxima Visita"
-                    data={cliente.proximaVisita.toString()}
+                    data={formatearFecha(cliente.proximaVisita.toString())}
                 /> 
                 <MobileClientDetailItem 
                     label="Precio"

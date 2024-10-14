@@ -82,11 +82,11 @@ export default function ClientDetails({cliente} : ClienteDetailsProp) {
                 /> 
                 <ClientDetailItem 
                     label="Ultima Visita"
-                    data={formatearFecha(cliente.ultimaVisita.toString())}
+                    data={cliente.ultimaVisita.toString() ? formatearFecha(cliente.ultimaVisita.toString()) : ''}
                 /> 
                 <ClientDetailItem 
                     label="Próxima Visita"
-                    data={formatearFecha(cliente.proximaVisita.toString())}
+                    data={cliente.ultimaVisita.toString() ? formatearFecha(cliente.proximaVisita.toString()) : ''}
                 /> 
                 <ClientDetailItem 
                     label="Precio"

@@ -76,11 +76,11 @@ export default function MobileClientDetails({cliente} : ClienteDetailsProp) {
                 />
                 <MobileClientDetailItem 
                     label="Ultima Visita"
-                    data={formatearFecha(cliente.ultimaVisita.toString())}
+                    data={cliente.ultimaVisita.toString() ? formatearFecha(cliente.ultimaVisita.toString()) : ''}
                 /> 
                 <MobileClientDetailItem 
                     label="Próxima Visita"
-                    data={formatearFecha(cliente.proximaVisita.toString())}
+                    data={cliente.ultimaVisita.toString() ? formatearFecha(cliente.proximaVisita.toString()) : ''}
                 /> 
                 <MobileClientDetailItem 
                     label="Precio"

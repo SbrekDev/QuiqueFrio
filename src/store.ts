@@ -62,7 +62,10 @@ export const useClientStore = create<ClientesState>((set, get)=> ({
             return;
          }
 
-        const nuevoCliente = createCliente(data)
+        const nuevoCliente = {
+            ...createCliente(data),
+            timestamp: Date.now() 
+        };
         const transaction = DB.transaction(['clientsDB'], 'readwrite');
         const objectStore = transaction.objectStore('clientsDB')
         
@@ -74,9 +77,11 @@ export const useClientStore = create<ClientesState>((set, get)=> ({
         }
         transaction.oncomplete = function(){
             toast.success('Cliente agregado')
-            set((state) => ({
-                 clientes: [...state.clientes, nuevoCliente]
-            }));
+        set((state) => {
+            const clientesOrdenados = [nuevoCliente, ...state.clientes].sort((a, b) => b.timestamp - a.timestamp);
+            return { clientes: clientesOrdenados };
+        });
+
         }
         
     },
@@ -101,9 +106,10 @@ export const useClientStore = create<ClientesState>((set, get)=> ({
                     clientes.push(cursor.value);
                     cursor.continue();
                 } else {
+                    const clientesOrdenados = clientes.sort((a, b) => b.timestamp - a.timestamp);
                     set((state) => {
-                        if (JSON.stringify(state.clientes) !== JSON.stringify(clientes)) {
-                            return { clientes };
+                         if (JSON.stringify(state.clientes) !== JSON.stringify(clientesOrdenados)) {
+                            return { clientes: clientesOrdenados };
                         }
                         return state;
                     });

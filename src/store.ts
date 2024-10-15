@@ -188,37 +188,56 @@ export const useClientStore = create<ClientesState>((set, get)=> ({
         if (!DB) {
             console.error('La base de datos no está inicializada');
             return;
-         }
+        }
 
-         const activeId = get().activeId; 
+        const activeId = get().activeId;
 
-         if (!activeId) {
-             console.error('No hay un ID activo para actualizar');
-             return;
-         }
-     
-         const updatedData = {
-             ...data,
-             id: activeId,
-         };
+        if (!activeId) {
+            console.error('No hay un ID activo para actualizar');
+            return;
+        }
 
-         const transaction = DB.transaction(['clientsDB'], 'readwrite');
-         const objectStore = transaction.objectStore('clientsDB')
+        // Recuperar el cliente existente para mantener el timestamp original
+        const clienteExistente = get().clientes.find(cliente => cliente.id === activeId);
 
-         objectStore.put(updatedData)
-         
-         
-         transaction.onerror = function(){
-             toast.error('Error al agregar cliente')
-             
-         }
-         transaction.oncomplete = function(){
-            set((state)=> ({
-                clientes: state.clientes.map( cliente => cliente.id === state.activeId ? {id:state.activeId, ...data} : cliente),
-                activeId: ''
-            }))
-            toast.success('Cliente actualizado')
-         }
+        if (!clienteExistente) {
+            console.error('Cliente no encontrado');
+            return;
+        }
+
+        // Mantener el timestamp original
+        const updatedData = {
+            ...data,
+            id: activeId,
+            timestamp: clienteExistente.timestamp // Conservar el timestamp
+        };
+
+        const transaction = DB.transaction(['clientsDB'], 'readwrite');
+        const objectStore = transaction.objectStore('clientsDB');
+
+        objectStore.put(updatedData);
+
+        transaction.onerror = function () {
+            toast.error('Error al actualizar cliente');
+        };
+
+        transaction.oncomplete = function () {
+            set((state) => {
+                const clientesActualizados = state.clientes.map(cliente =>
+                    cliente.id === activeId ? updatedData : cliente
+                );
+
+                // Reordenar la lista de clientes por timestamp descendente
+                const clientesOrdenados = clientesActualizados.sort((a, b) => b.timestamp - a.timestamp);
+
+                return {
+                    clientes: clientesOrdenados,
+                    activeId: ''
+                };
+            });
+
+            toast.success('Cliente actualizado');
+        };
     },
 
 }))

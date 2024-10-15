@@ -77,7 +77,7 @@ export default function MobileListadoClientes() {
                 
   
           </div>
-         <div className={`flex flex-col w-full space-y-3 h-screen`}>
+         <div className={`flex flex-col w-full space-y-3 pb-5`}>
          {clientesFiltrados.length ? (
                 <>
                   {estadoFinal === 'Todos' && finalDate.toString() === '' ? 

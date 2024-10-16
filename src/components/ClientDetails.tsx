@@ -6,8 +6,8 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import DownloadIcon from '@mui/icons-material/Download';
 import CachedIcon from '@mui/icons-material/Cached';
-import { useState } from "react";
-import { formatCash, formatearFecha, generateClientPDF } from "../utils";
+import { useEffect, useState } from "react";
+import { dateToTimestamp, formatCash, formatearFecha, generateClientPDF } from "../utils";
 
 type ClienteDetailsProp= {
     cliente: Cliente
@@ -28,6 +28,29 @@ export default function ClientDetails({cliente} : ClienteDetailsProp) {
     }
 
     const [, setEstadoFinal] = useState<string>(cliente?.estado!)
+
+
+   
+    useEffect(()=>{
+        setTimeout(() => {
+            if(cliente.proximaVisita.toString() !== ''){
+            if(dateToTimestamp(cliente.proximaVisita.toString()) <= Date.now() && cliente.estado === 'Completado'){
+                getClienteById(id!)
+                const nuevoEstado = 'Pendiente'
+                setEstadoFinal(nuevoEstado)
+                const clienteActualizado = {
+                    ...cliente,
+                    estado: nuevoEstado
+                };  
+                updateCliente(clienteActualizado) 
+                
+            }
+        } 
+        }, 500);
+    }, [])
+
+    
+
 
     function handleEstadoCliente(){
 

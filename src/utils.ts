@@ -4,7 +4,10 @@ import { Cliente } from "./types";
 
 const isDesktop = window.innerWidth >= 1024;
 
-
+export const dateToTimestamp = (dateString: string): number => {
+  const date = new Date(dateString);
+  return date.getTime();
+};
 
 export function formatearFecha(fecha: string): string {
 
